@@ -30,8 +30,10 @@ module Scruffy::Renderers
       rendertime_renderer.instance_eval { before_render if respond_to?(:before_render) }
 
       svg = Builder::XmlMarkup.new(:indent => 2)
-      svg.instruct!
-      svg.instruct! 'DOCTYPE', 'svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"  type'
+      unless options[:inline]
+        svg.instruct!
+        svg.instruct! 'DOCTYPE', 'svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"  type'
+      end
       svg.svg(:xmlns => "http://www.w3.org/2000/svg", 'xmlns:xlink' => "http://www.w3.org/1999/xlink", :width => options[:size].first, :height => options[:size].last) {
         svg.g(:id => options[:graph_id]) {
           rendertime_renderer.components.each do |component|
