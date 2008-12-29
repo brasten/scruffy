@@ -30,7 +30,7 @@ module Scruffy::Renderers
       rendertime_renderer.instance_eval { before_render if respond_to?(:before_render) }
 
       svg = Builder::XmlMarkup.new(:indent => 2)
-      unless options[:inline]
+      unless options[:no_doctype_header]
         svg.instruct!
         svg.instruct! 'DOCTYPE', 'svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"  type'
       end
