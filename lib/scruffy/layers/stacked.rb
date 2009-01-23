@@ -31,7 +31,7 @@ module Scruffy::Layers
     # Overrides Base#render to fiddle with layers' points to achieve a stacked effect.
     def render(svg, options = {})
       #TODO ensure this works with new points
-      current_points = points.dup
+      current_points = points
       
       layers.each do |layer|
         real_points = layer.points

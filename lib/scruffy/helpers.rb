@@ -9,4 +9,5 @@ module Scruffy::Helpers; end
 require 'scruffy/helpers/canvas'
 require 'scruffy/helpers/layer_container'
 require 'scruffy/helpers/point_container'
+require 'scruffy/helpers/marker_helper'
 #require 'scruffy/helpers/meta'

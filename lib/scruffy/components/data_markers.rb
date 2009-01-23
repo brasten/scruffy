@@ -2,8 +2,19 @@ module Scruffy
   module Components
 
     class DataMarkers < Base
-
+      
+      include Scruffy::Helpers::Marker
+      
+      attr_accessor :markers
+      
       def draw(svg, bounds, options={})
+        if (options[:point_markers].nil? || options[:point_markers].empty?) && options[:calculate_markers]
+          markers = (options[:markers] || self.markers) || 5
+          options[:point_markers] = []
+          each_marker(markers, options[:min_key], options[:max_key], bounds[:width], options, :key_formatter) do |label, x|
+            options[:point_markers] << label
+          end
+        end
         unless options[:point_markers].nil?
           point_distance = bounds[:width] / (options[:point_markers].size - 1).to_f
     

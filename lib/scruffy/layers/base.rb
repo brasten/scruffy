@@ -68,6 +68,7 @@ module Scruffy::Layers
       options[:relativestroke] ||= false
       
       @options            = options
+      
     end
   
     # Builds SVG code for this graph using the provided Builder object.
@@ -75,7 +76,7 @@ module Scruffy::Layers
     # rendering responsibilities to Base#draw.
     #
     # svg:: a Builder object used to create SVG code.
-    def render(svg, options = {})
+    def render(svg, options)
       setup_variables(options)
       coords = generate_coordinates(options)
     
@@ -123,6 +124,16 @@ module Scruffy::Layers
     def bottom_value
        @relevant_data ? points.minimum_value : nil
     end
+    
+    # The highest data point on this layer, or nil if relevant_data == false
+    def bottom_key
+      @relevant_data ? points.minimum_key : nil
+    end
+  
+    # The lowest data point on this layer, or nil if relevant_data == false
+    def top_key
+       @relevant_data ? points.maximum_key : nil
+    end
 
     # The sum of all values
     def sum_values
@@ -144,20 +155,20 @@ module Scruffy::Layers
       # just a best guess, and can be overridden or thrown away (for example, this is overridden
       # in pie charting and bar charts).
       def generate_coordinates(options = {})
-        options[:point_distance] = width / (points.size - 1).to_f
+        
+        dy = height.to_f / (options[:max_value] - options[:min_value])
+        dx = width.to_f / (options[:max_key] - options[:min_key])
 
-        points.inject_with_index([]) do |memo, point, idx|
-          x_coord = options[:point_distance] * idx
+        ret = []
+        points.each_point do |x, y|
+          if y
+            x_coord = dx * (x.to_f - options[:min_key])
+            y_coord = dy * (y.to_f - options[:min_value])
 
-          if point
-            relative_percent = ((point == min_value) ? 0 : ((point - min_value) / (max_value - min_value).to_f))
-            y_coord = (height - (height * relative_percent))
-  
-            memo << [x_coord, y_coord]
+            ret << [x_coord, height - y_coord]
           end
-          
-          memo
         end
+        return ret
       end
     
       # Converts a percentage into a pixel value, relative to the height.

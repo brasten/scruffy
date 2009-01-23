@@ -76,15 +76,37 @@ module Scruffy::Helpers
     # If the lowest value is greater than zero, then the padding will not cross the zero line, preventing
     # negative values from being introduced into the graph purely due to padding.
     def bottom_value(padding=nil) # :nodoc:
-      botval = layers.inject(top_value) { |min, layer| (min = ((min > layer.bottom_value) ? layer.bottom_value : min)) unless layer.bottom_value.nil?; min }
+      botval = layers.inject(0) do |min, layer| 
+        (min = ((min > layer.bottom_value) ? layer.bottom_value : min)) unless layer.bottom_value.nil?
+        min 
+      end
       above_zero = (botval > 0)
-      botval = (botval - ((top_value - botval) * 0.15))
+      botval = (botval - ((top_value - botval) * 0.15)) if padding == :padded
     
       # Don't introduce negative values solely due to padding.
       # A user-provided value must be negative before padding will extend into negative values.
       (above_zero && botval < 0) ? 0 : botval
     end
 
+    def bottom_key(padding=nil)
+      return 0 unless layers.any?
+      min = layers[0].bottom_key
+      layers.each do |layer|
+        min = layer.bottom_key if min.nil? && !layer.bottom_key.nil?
+        (min = ((min > layer.bottom_key) ? layer.bottom_key : min)) unless layer.bottom_key.nil?
+      end
+      min
+    end
+    
+    def top_key(padding=nil)
+      return 1 unless layers.any?
+      max = layers[0].top_key
+      layers.each do |layer|
+        max = layer.top_key if max.nil? && !layer.top_key.nil?
+        (max = ((max < layer.top_key) ? layer.top_key : max)) unless layer.top_key.nil?
+      end
+      max
+    end
 
     protected
       def to_camelcase(type)  # :nodoc:

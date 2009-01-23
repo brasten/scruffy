@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification 
 name: scruffy
 version: !ruby/object:Gem::Version 
-  version: 0.2.7
+  version: 0.2.8
 platform: ruby
 authors: 
 - Brasten Sager
@@ -23,16 +23,6 @@ dependencies:
     - - ">="
       - !ruby/object:Gem::Version 
         version: 2.0.0
-    version: 
-- !ruby/object:Gem::Dependency 
-  name: hoe
-  type: :runtime
-  version_requirement: 
-  version_requirements: !ruby/object:Gem::Requirement 
-    requirements: 
-    - - ">="
-      - !ruby/object:Gem::Version 
-        version: 1.7.0
     version: 
 description: Scruffy is a Ruby library for generating high quality, good looking graphs. It is designed to be easy to use and highly customizable.
 email: 
@@ -66,6 +56,7 @@ files:
 - lib/scruffy/helpers/point_container.rb
 - lib/scruffy/helpers/layer_container.rb
 - lib/scruffy/helpers/meta.rb
+- lib/scruffy/helpers/marker_helper.rb
 - lib/scruffy/components.rb
 - lib/scruffy/graph_state.rb
 - lib/scruffy/components/style_info.rb
@@ -94,8 +85,10 @@ files:
 - lib/scruffy/layers.rb
 - lib/scruffy.rb
 - LICENCE.txt
+- History.txt
 - README.txt
 - CHANGES.txt
+- Manifest.txt
 has_rdoc: true
 homepage: http://scruffy.rubyforge.org
 post_install_message: 

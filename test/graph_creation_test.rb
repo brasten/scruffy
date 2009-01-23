@@ -1,5 +1,5 @@
 require 'test/unit'
-require 'scruffy'
+require 'test_helper'
 
 class SimpleTheme < Scruffy::Themes::Base
   def initialize
@@ -10,6 +10,13 @@ class SimpleTheme < Scruffy::Themes::Base
         :stroke_color => 'white'
       })
   end
+end
+
+$make_png = true
+begin
+  require 'RMagick'
+rescue LoadError
+  $make_png = nil
 end
 
 class GraphCreationTest < Test::Unit::TestCase
@@ -29,7 +36,7 @@ class GraphCreationTest < Test::Unit::TestCase
     }
 
     graph.render :to => "#{WEBSITE_DIR}/pie_test.svg"
-    graph.render :width => 400, :to => "#{WEBSITE_DIR}/pie_test.png", :as => 'png'
+    graph.render :width => 400, :to => "#{WEBSITE_DIR}/pie_test.png", :as => 'png' if $make_png
   end
   
   def test_create_line
@@ -40,7 +47,7 @@ class GraphCreationTest < Test::Unit::TestCase
     graph.add :line, 'Example', [20, 100, 70, 30, 106]
 
     graph.render :to => "#{WEBSITE_DIR}/line_test.svg"
-    graph.render  :width => 400, :to => "#{WEBSITE_DIR}/line_test.png", :as => 'png'
+    graph.render  :width => 400, :to => "#{WEBSITE_DIR}/line_test.png", :as => 'png' if $make_png
   end
 
   
@@ -50,7 +57,7 @@ class GraphCreationTest < Test::Unit::TestCase
     graph.renderer = Scruffy::Renderers::Standard.new
     graph.add :bar, 'Example', [20, 100, 70, 30, 106]
     graph.render :to => "#{WEBSITE_DIR}/bar_test.svg"
-    graph.render  :width => 400, :to => "#{WEBSITE_DIR}/bar_test.png", :as => 'png'
+    graph.render  :width => 400, :to => "#{WEBSITE_DIR}/bar_test.png", :as => 'png' if $make_png
   end
   
   def test_split
@@ -67,7 +74,7 @@ class GraphCreationTest < Test::Unit::TestCase
     graph.point_markers = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     
     graph.render :to => "#{WEBSITE_DIR}/split_test.svg"
-    graph.render  :width => 500, :to => "#{WEBSITE_DIR}/split_test.png", :as => 'png'
+    graph.render  :width => 500, :to => "#{WEBSITE_DIR}/split_test.png", :as => 'png' if $make_png
   end
   
   def test_stacking
@@ -81,7 +88,7 @@ class GraphCreationTest < Test::Unit::TestCase
     end
     graph.point_markers = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
     graph.render :to => "#{WEBSITE_DIR}/stacking_test.svg"
-    graph.render  :width => 500, :to => "#{WEBSITE_DIR}/stacking_test.png", :as => 'png'
+    graph.render  :width => 500, :to => "#{WEBSITE_DIR}/stacking_test.png", :as => 'png' if $make_png
   end
   
   def test_multi_layered
@@ -96,6 +103,18 @@ class GraphCreationTest < Test::Unit::TestCase
     graph.add :line, 'Jim', [-10, -20, 50, 92, -21, 56], :categories => [:top_left, :bottom_right]
     graph.point_markers = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
     graph.render :to => "#{WEBSITE_DIR}/multi_test.svg"
-    graph.render  :width => 500, :to => "#{WEBSITE_DIR}/multi_test.png", :as => 'png'
+    graph.render  :width => 500, :to => "#{WEBSITE_DIR}/multi_test.png", :as => 'png' if $make_png
+  end
+  
+  def test_scatter
+    graph = Scruffy::Graph.new
+    graph.title = "Some Kind of Information"
+    graph.renderer = Scruffy::Renderers::Standard.new
+
+    graph.add :scatter, 'Stephanie', {0 => 0, 1 => 1, 2 => 4, 3 => 9, 4 => 8, 5 => 10, 6 => 12, 7 => 3, 8 => 13}    
+    graph.add :line, 'Artiom', {-3 => 2, 1.5 => 6, 2 => 4.5, 15 => -4}, :dots => true   
+    graph.add :scatter, 'Sam', [[-3,15], [1.5,18], [2,9], [15,6]]   
+    graph.render :to => "#{WEBSITE_DIR}/scatter_test.svg"
+    graph.render  :width => 500, :to => "#{WEBSITE_DIR}/scatter_test.png", :as => 'png' if $make_png
   end
 end
