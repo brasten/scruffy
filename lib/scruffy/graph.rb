@@ -116,7 +116,7 @@ module Scruffy
       self.value_formatter = Scruffy::Formatters::Number.new
       self.key_formatter = Scruffy::Formatters::Number.new
 
-      %w(title theme layers default_type value_formatter point_markers rasterizer).each do |arg|
+      %w(title theme layers default_type value_formatter point_markers rasterizer key_formatter).each do |arg|
         self.send("#{arg}=".to_sym, options.delete(arg.to_sym)) unless options[arg.to_sym].nil?
       end
       

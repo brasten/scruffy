@@ -7,7 +7,7 @@ module Scruffy::Helpers
 
       (0...markers).each do |idx|
         percent = idx.to_f / (markers-1)
-        all_values << (max - min) * percent + min
+        all_values << min + (max - min) * percent
       end
 
       all_values.size.times do |idx|

@@ -162,8 +162,8 @@ module Scruffy::Layers
         ret = []
         points.each_point do |x, y|
           if y
-            x_coord = dx * (x.to_f - options[:min_key])
-            y_coord = dy * (y.to_f - options[:min_value])
+            x_coord = dx * (x - options[:min_key])
+            y_coord = dy * (y - options[:min_value])
 
             ret << [x_coord, height - y_coord]
           end

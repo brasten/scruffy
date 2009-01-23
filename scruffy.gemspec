@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification 
 name: scruffy
 version: !ruby/object:Gem::Version 
-  version: 0.2.8
+  version: 0.2.9
 platform: ruby
 authors: 
 - Brasten Sager
@@ -11,7 +11,7 @@ autorequire:
 bindir: bin
 cert_chain: []
 
-date: 2008-12-29 00:00:00 -05:00
+date: 2009-01-23 00:00:00 -05:00
 default_executable: 
 dependencies: 
 - !ruby/object:Gem::Dependency 

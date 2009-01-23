@@ -8,7 +8,7 @@ module Scruffy
       attr_accessor :markers
       
       def draw(svg, bounds, options={})
-        if (options[:point_markers].nil? || options[:point_markers].empty?) && options[:calculate_markers]
+        if options[:calculate_markers] && (options[:point_markers].nil? || options[:point_markers].empty?)
           markers = (options[:markers] || self.markers) || 5
           options[:point_markers] = []
           each_marker(markers, options[:min_key], options[:max_key], bounds[:width], options, :key_formatter) do |label, x|

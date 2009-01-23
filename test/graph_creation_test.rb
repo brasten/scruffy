@@ -117,4 +117,18 @@ class GraphCreationTest < Test::Unit::TestCase
     graph.render :to => "#{WEBSITE_DIR}/scatter_test.svg"
     graph.render  :width => 500, :to => "#{WEBSITE_DIR}/scatter_test.png", :as => 'png' if $make_png
   end
+  
+  def test_scatter_by_date
+    graph = Scruffy::Graph.new
+    graph.title = "Some Kind of Information"
+    graph.renderer = Scruffy::Renderers::Standard.new
+    graph.key_formatter = Scruffy::Formatters::Date.new("%H:%M")
+    h = {}
+    start = Time.local(2009, 1, 20, 12, 0, 0)
+    30.times{|i| h[start + 60*i] = i*i}
+    
+    graph.add :scatter, 'DNI', h
+    graph.render :to => "#{WEBSITE_DIR}/scatter_date_test.svg", :calculate_markers => true
+    graph.render  :width => 500, :to => "#{WEBSITE_DIR}/scatter_date_test.png", :as => 'png' if $make_png
+  end
 end
