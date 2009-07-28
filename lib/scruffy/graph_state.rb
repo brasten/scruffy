@@ -14,6 +14,7 @@ module Scruffy
     attr_accessor :theme
     attr_accessor :default_type
     attr_accessor :point_markers
+    attr_accessor :point_markers_rotation
     attr_accessor :value_formatter
     attr_accessor :key_formatter
     attr_accessor :rasterizer

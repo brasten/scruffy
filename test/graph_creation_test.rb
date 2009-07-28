@@ -91,6 +91,25 @@ class GraphCreationTest < Test::Unit::TestCase
     graph.render  :width => 500, :to => "#{WEBSITE_DIR}/stacking_test.png", :as => 'png' if $make_png
   end
   
+  
+  def test_rotated_point_markers
+    graph = Scruffy::Graph.new({:point_markers_rotation=>30}) #
+    graph.title = "Comparative Agent Performance"
+    graph.value_formatter = Scruffy::Formatters::Percentage.new(:precision => 0)
+    graph.add :stacked do |stacked|
+      stacked.add :bar, 'Jack', [30, 60, 49, 29, 100, 120]
+      stacked.add :bar, 'Jill', [120, 240, 0, 100, 140, 20]
+      stacked.add :bar, 'Hill', [10, 10, 90, 20, 40, 10]
+    end
+    graph.point_markers = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+    #Rotation was set when the graph was created
+    #You can also do something like this
+    #graph.point_markers_rotation = 90
+    graph.render :to => "#{WEBSITE_DIR}/rotated_point_markers_test.svg"
+    graph.render  :width => 500, :to => "#{WEBSITE_DIR}/rotated_point_markers_test.png", :as => 'png' if $make_png
+  end
+  
+  
   def test_multi_layered
     graph = Scruffy::Graph.new
     graph.title = "Some Kind of Information"
