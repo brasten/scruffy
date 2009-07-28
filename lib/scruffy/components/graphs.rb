@@ -26,6 +26,8 @@ module Scruffy
           layer_options[:index]       = idx
           layer_options[:min_value]   = options[:min_value]
           layer_options[:max_value]   = options[:max_value]
+          layer_options[:min_key]     = options[:min_key]
+          layer_options[:max_key]     = options[:max_key]
           layer_options[:complexity]  = options[:complexity]
           layer_options[:size]        = [bounds[:width], bounds[:height]]
           layer_options[:color]       = layer.preferred_color || layer.color || options[:theme].next_color

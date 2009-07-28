@@ -80,10 +80,12 @@ module Scruffy
 
     # Delegating these getters to the internal state object.
     def_delegators  :internal_state, :title, :theme, :default_type, 
-                    :point_markers, :value_formatter, :rasterizer
+                    :point_markers, :value_formatter, :rasterizer,
+                    :key_formatter
                   
     def_delegators  :internal_state, :title=, :theme=, :default_type=,
-                    :point_markers=, :value_formatter=, :rasterizer=
+                    :point_markers=, :value_formatter=, :rasterizer=,
+                    :key_formatter=
     
     attr_reader :renderer     # Writer defined below
     
@@ -112,8 +114,9 @@ module Scruffy
       self.renderer = Scruffy::Renderers::Standard.new
       self.rasterizer = Scruffy::Rasterizers::RMagickRasterizer.new
       self.value_formatter = Scruffy::Formatters::Number.new
+      self.key_formatter = Scruffy::Formatters::Number.new
 
-      %w(title theme layers default_type value_formatter point_markers rasterizer).each do |arg|
+      %w(title theme layers default_type value_formatter point_markers rasterizer key_formatter).each do |arg|
         self.send("#{arg}=".to_sym, options.delete(arg.to_sym)) unless options[arg.to_sym].nil?
       end
       
@@ -136,14 +139,16 @@ module Scruffy
     def render(options = {})
       options[:theme]               ||= theme
       options[:value_formatter]     ||= value_formatter
+      options[:key_formatter]       ||= key_formatter
       options[:point_markers]       ||= point_markers
       options[:size]                ||= (options[:width] ? [options[:width], (options.delete(:width) * 0.6).to_i] : [600, 360])
       options[:title]               ||= title
       options[:layers]              ||= layers
-      options[:min_value]           ||= bottom_value(:padded)
+      options[:min_value]           ||= bottom_value #(:padded)
       options[:max_value]           ||= top_value
+      options[:min_key]             ||= bottom_key
+      options[:max_key]             ||= top_key
       options[:graph]               ||= self
-      
 
       # Removed for now.
       # Added for making smaller fonts more legible, but may not be needed after all.

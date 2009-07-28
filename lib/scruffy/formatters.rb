@@ -209,5 +209,22 @@ module Scruffy::Formatters
       end
     end
   end
+  
+ 
+  class Date < Base
+
+    def initialize(format_string, options = {})
+      @format_string = format_string
+    end
+    
+    # Formats percentages.
+    def format(target, idx, options)
+      begin
+        target.strftime(@format_string)
+      rescue
+        target
+      end
+    end
+  end
 
 end
