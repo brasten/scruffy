@@ -49,6 +49,18 @@ class GraphCreationTest < Test::Unit::TestCase
     graph.render :to => "#{WEBSITE_DIR}/line_test.svg"
     graph.render  :width => 400, :to => "#{WEBSITE_DIR}/line_test.png", :as => 'png' if $make_png
   end
+  
+  
+  def test_create_small_value_line
+    graph = Scruffy::Graph.new
+    graph.title = "Sample Line Graph"
+    graph.renderer = Scruffy::Renderers::Standard.new
+    graph.value_formatter = Scruffy::Formatters::Number.new(:precision => 1)
+    graph.add :line, 'Example', [0.2,0.5,0.1,0.9,0.8,1.2,0.05,1]
+
+    graph.render :to => "#{WEBSITE_DIR}/small_value_line_test.svg"
+    graph.render  :width => 400, :to => "#{WEBSITE_DIR}/small_value_line_test.png", :as => 'png' if $make_png
+  end
 
   
   def test_create_bar

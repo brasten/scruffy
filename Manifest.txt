@@ -24,6 +24,7 @@ lib/scruffy/graph_state.rb
 lib/scruffy/helpers.rb
 lib/scruffy/helpers/canvas.rb
 lib/scruffy/helpers/layer_container.rb
+lib/scruffy/helpers/marker_helper.rb
 lib/scruffy/helpers/meta.rb
 lib/scruffy/helpers/point_container.rb
 lib/scruffy/layers.rb
