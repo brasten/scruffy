@@ -14,7 +14,7 @@ module Scruffy::Layers
     # Draw multi_bar graph.
     def draw(svg, coords, options = {})
       coords.each do |coord|
-        x, y, bar_height = (coord.first-(@bar_width * 0.5)), coord.last, (height - coord.last)
+        x, y, bar_height = (coord.first), coord.last, (height - coord.last)
 
         #svg.g(:transform => "translate(-#{relative(0.5)}, -#{relative(0.5)})") {
         #  svg.rect( :x => x, :y => y, :width => @bar_width + relative(1), :height => bar_height + relative(1), 
@@ -55,7 +55,7 @@ module Scruffy::Layers
         #TODO more array work with index, try to rework to be accepting of hashes
         coords = (0...points.size).map do |idx| 
           
-          x_coord = (@point_width * idx) + @point_space/2 + @point_space*idx + @bar_width * options[:position] + @bar_width/2 +  @bar_space*(options[:position].to_f - 0.5)
+          x_coord = (@point_width * idx) + @point_space/2 + @point_space*idx + @bar_width * options[:position] +   @bar_space*(options[:position].to_f - 0.5)
 
           relative_percent = ((points[idx] == min_value) ? 0 : ((points[idx] - min_value) / (max_value - min_value).to_f))
           y_coord = (height - (height * relative_percent))
