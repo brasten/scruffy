@@ -16,9 +16,10 @@ module Scruffy
           end
         end
         unless options[:point_markers].nil?
-          point_distance = bounds[:width] / (options[:point_markers].size - 1).to_f
+          # Updated to set the label in line with the point.
+          point_distance = bounds[:width] / (options[:point_markers].size).to_f
           (0...options[:point_markers].size).map do |idx| 
-            x_coord = point_distance * idx
+            x_coord = point_distance * idx  + point_distance/2
             svg.text(options[:point_markers][idx],
               :x => 0,
               :y => 0, 

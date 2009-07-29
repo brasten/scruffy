@@ -154,15 +154,19 @@ module Scruffy::Layers
       # Optimistic generation of coordinates for layer to use.  These coordinates are
       # just a best guess, and can be overridden or thrown away (for example, this is overridden
       # in pie charting and bar charts).
+      
+      # Updated : Assuming n number of points, the graph is divided into n rectangles
+      # and the points are plotted in the middle of each rectangle.  This allows bars to 
+      # play nice with lines.
       def generate_coordinates(options = {})
         
-        dy = height.to_f / (options[:max_value] - options[:min_value])
-        dx = width.to_f / (options[:max_key] - options[:min_key])
+        dy = height.to_f / (options[:max_value] - options[:min_value]) 
+        dx = width.to_f / (options[:max_key] - options[:min_key] + 1)
 
         ret = []
         points.each_point do |x, y|
           if y
-            x_coord = dx * (x - options[:min_key])
+            x_coord = dx * (x - options[:min_key]) + dx/2
             y_coord = dy * (y - options[:min_value])
 
             ret << [x_coord, height - y_coord]
