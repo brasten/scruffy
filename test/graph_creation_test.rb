@@ -72,6 +72,15 @@ class GraphCreationTest < Test::Unit::TestCase
     graph.render  :width => 400, :to => "#{WEBSITE_DIR}/bar_test.png", :as => 'png' if $make_png
   end
   
+  def test_create_bar_with_negatives
+    graph = Scruffy::Graph.new
+    graph.title = "Sample Bar Graph"
+    graph.renderer = Scruffy::Renderers::Standard.new
+    graph.add :bar, 'Example', [20, 100,-10, 70, 30, -40, 106]
+    graph.render :to => "#{WEBSITE_DIR}/negative_bar_test.svg"
+    graph.render  :width => 400, :to => "#{WEBSITE_DIR}/negative_bar_test.png", :as => 'png' if $make_png
+  end
+  
   def test_split
     graph = Scruffy::Graph.new
     graph.title = "Long-term Comparisons"
@@ -101,6 +110,37 @@ class GraphCreationTest < Test::Unit::TestCase
     graph.point_markers = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
     graph.render :to => "#{WEBSITE_DIR}/stacking_test.svg"
     graph.render  :width => 500, :to => "#{WEBSITE_DIR}/stacking_test.png", :as => 'png' if $make_png
+  end
+  
+  
+  def test_reg_multi_bar
+    graph = Scruffy::Graph.new
+    graph.title = "Comparative Agent Performance"
+    graph.value_formatter = Scruffy::Formatters::Percentage.new(:precision => 0)
+    #graph.add :multi do |multi|
+      graph.add :bar, 'Jack', [30, 60, 49, 29, 100, 120]
+      graph.add :bar, 'Jill', [120, 240, 0, 100, 140, 20]
+      graph.add :bar, 'Hill', [10, 10, 90, 20, 40, 10]
+    #end
+    graph.point_markers = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+    graph.render :to => "#{WEBSITE_DIR}/reg_multi_bar_test.svg"
+    graph.render  :width => 500, :to => "#{WEBSITE_DIR}/reg_multi_bar_test.png", :as => 'png' if $make_png
+  end
+  
+  def test_multi_bar
+    graph = Scruffy::Graph.new
+    graph.title = "Comparative Agent Performance"
+    graph.value_formatter = Scruffy::Formatters::Percentage.new(:precision => 0)
+    graph.add :multi do |multi|
+      multi.add :multi_bar, 'Jack', [30, 60, 49, 29, 100, 120]
+      multi.add :multi_bar, 'Jill', [120, 240, 0, 100, 140, 20]
+      multi.add :multi_bar, 'Hill', [10, 10, 90, 20, 40, 10]
+      multi.add :multi_bar, 'Bob', [-10, -20, -30, -40, -50, -60]
+    end
+    graph.point_markers = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+    graph.render :to => "#{WEBSITE_DIR}/multi_bar_test.svg"
+    graph.point_markers_ticks = true
+    graph.render  :width => 900, :to => "#{WEBSITE_DIR}/multi_bar_test.png", :as => 'png' if $make_png
   end
   
   

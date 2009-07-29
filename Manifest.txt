@@ -34,6 +34,8 @@ lib/scruffy/layers/average.rb
 lib/scruffy/layers/bar.rb
 lib/scruffy/layers/base.rb
 lib/scruffy/layers/line.rb
+lib/scruffy/layers/multi.rb
+lib/scruffy/layers/multi_bar.rb
 lib/scruffy/layers/pie.rb
 lib/scruffy/layers/pie_slice.rb
 lib/scruffy/layers/scatter.rb
