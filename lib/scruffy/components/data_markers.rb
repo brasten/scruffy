@@ -20,6 +20,9 @@ module Scruffy
           point_distance = bounds[:width] / (options[:point_markers].size).to_f
           (0...options[:point_markers].size).map do |idx| 
             x_coord = point_distance * idx  + point_distance/2
+            if options[:point_markers_ticks]
+              svg.line(:x1 => x_coord, :y1 => 0, :x2 => x_coord, :y2 => -2, :style => "stroke:#{(options[:theme].marker || 'white').to_s}, stroke-width:1")
+            end
             svg.text(options[:point_markers][idx],
               :x => 0,
               :y => 0, 

@@ -80,11 +80,11 @@ module Scruffy
 
     # Delegating these getters to the internal state object.
     def_delegators  :internal_state, :title, :theme, :default_type, 
-                    :point_markers,:point_markers_rotation, :value_formatter, :rasterizer,
+                    :point_markers,:point_markers_rotation,:point_markers_ticks, :value_formatter, :rasterizer,
                     :key_formatter
                   
     def_delegators  :internal_state, :title=, :theme=, :default_type=,
-                    :point_markers=,:point_markers_rotation=, :value_formatter=, :rasterizer=,
+                    :point_markers=,:point_markers_rotation=,:point_markers_ticks=, :value_formatter=, :rasterizer=,
                     :key_formatter=
     
     attr_reader :renderer     # Writer defined below
@@ -103,7 +103,8 @@ module Scruffy
     # default_type::  A symbol indicating the default type of Layer for this graph
     # value_formatter::   Sets a formatter used to modify marker values prior to rendering
     # point_markers::  Sets the x-axis marker values
-    # point_markers_rotation::  Sets the angle of rotation for x-axis marker values    
+    # point_markers_rotation::  Sets the angle of rotation for x-axis marker values
+    # point_markers_ticks::  Sets a small tick mark above each marker value.  Helful when used with rotation.    
     # rasterizer::  Sets the rasterizer to use when rendering to an image format.  Defaults to RMagick.
     def initialize(*args)
       self.default_type   = args.shift if args.first.is_a?(Symbol)
@@ -119,7 +120,7 @@ module Scruffy
       self.value_formatter = Scruffy::Formatters::Number.new
       self.key_formatter = Scruffy::Formatters::Number.new
 
-      %w(title theme layers default_type value_formatter point_markers point_markers_rotation rasterizer key_formatter).each do |arg|
+      %w(title theme layers default_type value_formatter point_markers point_markers_rotation point_markers_ticks rasterizer key_formatter).each do |arg|
         self.send("#{arg}=".to_sym, options.delete(arg.to_sym)) unless options[arg.to_sym].nil?
       end
       
@@ -145,6 +146,7 @@ module Scruffy
       options[:key_formatter]       ||= key_formatter
       options[:point_markers]       ||= point_markers
       options[:point_markers_rotation]       ||= point_markers_rotation
+      options[:point_markers_ticks]       ||= point_markers_ticks
       options[:size]                ||= (options[:width] ? [options[:width], (options.delete(:width) * 0.6).to_i] : [600, 360])
       options[:title]               ||= title
       options[:layers]              ||= layers

@@ -114,6 +114,7 @@ class GraphCreationTest < Test::Unit::TestCase
       stacked.add :bar, 'Hill', [10, 10, 90, 20, 40, 10]
     end
     graph.point_markers = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+    graph.point_markers_ticks = true
     #Rotation was set when the graph was created
     #You can also do something like this
     #graph.point_markers_rotation = 90
