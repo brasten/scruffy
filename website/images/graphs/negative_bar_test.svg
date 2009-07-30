@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"  type=""?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="360" width="600">
+  <g id="scruffy_graph">
+    <g transform="translate(0.0, 0.0)" id="background">
+      <defs>
+        <linearGradient x2="0%" y2="100%" x1="0%" id="BackgroundGradient" y1="0%">
+          <stop stop-color="#FFFFFF" offset="5%"/>
+          <stop stop-color="#FFFFFF" offset="95%"/>
+        </linearGradient>
+      </defs>
+      <rect height="360.0" width="600.0" y="0" fill="url(#BackgroundGradient)" x="0"/>
+    </g>
+    <g transform="translate(30.0, 7.2)" id="title">
+      <text text-anchor="middle" class="title" font-size="25.2" font-family="" stroke="none" y="25.2" fill="#999999" stroke-width="0" x="270.0">Sample Bar Graph</text>
+    </g>
+    <g transform="translate(12.0, 93.6)" id="view">
+      <g>
+        <g transform="translate(0.0, 4.752)" id="values">
+          <text text-anchor="end" font-size="16.91712" font-family="" y="211.464" fill="#999999" x="96.12">-40</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" y="158.598" fill="#999999" x="96.12">-4</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" y="105.732" fill="#999999" x="96.12">33</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" y="52.866" fill="#999999" x="96.12">70</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" y="0.0" fill="#999999" x="96.12">106</text>
+        </g>
+        <g transform="translate(106.8, 0.0)" id="grid">
+          <line style="stroke: #999999; stroke-width: 1;" x2="427.2" y2="0.0" x1="0" y1="0.0"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="427.2" y2="52.866" x1="0" y1="52.866"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="427.2" y2="105.732" x1="0" y1="105.732"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="427.2" y2="158.598" x1="0" y1="158.598"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="427.2" y2="211.464" x1="0" y1="211.464"/>
+        </g>
+        <g transform="translate(106.8, 0.0)" id="vgrid">
+          <line style="stroke: #999999; stroke-width: 1;" x2="0.0" y2="211.464" x1="0.0" y1="0"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="106.8" y2="211.464" x1="106.8" y1="0"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="213.6" y2="211.464" x1="213.6" y1="0"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="320.4" y2="211.464" x1="320.4" y1="0"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="427.2" y2="211.464" x1="427.2" y1="0"/>
+        </g>
+        <g transform="translate(106.8, 218.592)" id="labels">
+        </g>
+        <g transform="translate(106.8, 0.0)" id="graphs">
+          <g class="graph_layer" id="component_graphs_graph_0">
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect style="fill: black; fill-opacity: 0.15; stroke: none;" height="31.0823112328767" width="57.0403542857143" y="124.56098630137" x="3.05142857142857"/>
+              <rect style="fill: black; fill-opacity: 0.15; stroke: none;" height="27.9103512328767" width="57.0403542857143" y="128.79026630137" x="4.10874857142857"/>
+            </g>
+            <rect height="28.9676712328767" width="54.9257142857143" y="124.56098630137" fill="#1919B3" x="3.05142857142857" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect style="fill: black; fill-opacity: 0.15; stroke: none;" height="146.952996164384" width="57.0403542857143" y="8.69030136986302" x="64.08"/>
+              <rect style="fill: black; fill-opacity: 0.15; stroke: none;" height="143.781036164384" width="57.0403542857143" y="12.919581369863" x="65.13732"/>
+            </g>
+            <rect height="144.838356164384" width="54.9257142857143" y="8.69030136986302" fill="#1919B3" x="64.08" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect style="fill: black; fill-opacity: 0.15; stroke: none;" height="-12.3691956164384" width="57.0403542857143" y="168.012493150685" x="125.108571428571"/>
+              <rect style="fill: black; fill-opacity: 0.15; stroke: none;" height="-15.5411556164384" width="57.0403542857143" y="172.241773150685" x="126.165891428571"/>
+            </g>
+            <rect height="-14.4838356164384" width="54.9257142857143" y="168.012493150685" fill="#1919B3" x="125.108571428571" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect style="fill: black; fill-opacity: 0.15; stroke: none;" height="103.501489315068" width="57.0403542857143" y="52.1418082191781" x="186.137142857143"/>
+              <rect style="fill: black; fill-opacity: 0.15; stroke: none;" height="100.329529315068" width="57.0403542857143" y="56.3710882191781" x="187.194462857143"/>
+            </g>
+            <rect height="101.386849315068" width="54.9257142857143" y="52.1418082191781" fill="#1919B3" x="186.137142857143" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect style="fill: black; fill-opacity: 0.15; stroke: none;" height="45.5661468493151" width="57.0403542857143" y="110.077150684932" x="247.165714285714"/>
+              <rect style="fill: black; fill-opacity: 0.15; stroke: none;" height="42.3941868493151" width="57.0403542857143" y="114.306430684932" x="248.223034285714"/>
+            </g>
+            <rect height="43.4515068493151" width="54.9257142857143" y="110.077150684932" fill="#1919B3" x="247.165714285714" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect style="fill: black; fill-opacity: 0.15; stroke: none;" height="-55.8207024657534" width="57.0403542857143" y="211.464" x="308.194285714286"/>
+              <rect style="fill: black; fill-opacity: 0.15; stroke: none;" height="-58.9926624657534" width="57.0403542857143" y="215.69328" x="309.251605714286"/>
+            </g>
+            <rect height="-57.9353424657534" width="54.9257142857143" y="211.464" fill="#1919B3" x="308.194285714286" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect style="fill: black; fill-opacity: 0.15; stroke: none;" height="155.643297534247" width="57.0403542857143" y="0.0" x="369.222857142857"/>
+              <rect style="fill: black; fill-opacity: 0.15; stroke: none;" height="152.471337534247" width="57.0403542857143" y="4.22928" x="370.280177142857"/>
+            </g>
+            <rect height="153.528657534247" width="54.9257142857143" y="0.0" fill="#1919B3" x="369.222857142857" style="opacity: 1.0; stroke: none;"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g transform="translate(30.0, 46.8)" id="legend">
+      <rect height="10.8" width="10.8" y="0" fill="#1919B3" x="226.8"/>
+      <text style="color: #999999" font-size="15.552" font-family="" y="11.664" fill="#999999" x="246.24">Example</text>
+    </g>
+  </g>
+</svg>

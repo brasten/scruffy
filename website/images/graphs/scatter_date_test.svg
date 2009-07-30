@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"  type=""?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="360" width="600">
+  <g id="scruffy_graph">
+    <g transform="translate(0.0, 0.0)" id="background">
+      <defs>
+        <linearGradient x2="0%" y2="100%" x1="0%" id="BackgroundGradient" y1="0%">
+          <stop stop-color="#FFFFFF" offset="5%"/>
+          <stop stop-color="#FFFFFF" offset="95%"/>
+        </linearGradient>
+      </defs>
+      <rect height="360.0" width="600.0" y="0" fill="url(#BackgroundGradient)" x="0"/>
+    </g>
+    <g transform="translate(30.0, 7.2)" id="title">
+      <text text-anchor="middle" class="title" font-size="25.2" font-family="" stroke="none" y="25.2" fill="#999999" stroke-width="0" x="270.0">Some Kind of Information</text>
+    </g>
+    <g transform="translate(12.0, 93.6)" id="view">
+      <g>
+        <g transform="translate(0.0, 4.752)" id="values">
+          <text text-anchor="end" font-size="16.91712" font-family="" y="211.464" fill="#999999" x="96.12">0</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" y="158.598" fill="#999999" x="96.12">210</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" y="105.732" fill="#999999" x="96.12">420</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" y="52.866" fill="#999999" x="96.12">631</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" y="0.0" fill="#999999" x="96.12">841</text>
+        </g>
+        <g transform="translate(106.8, 0.0)" id="grid">
+          <line style="stroke: #999999; stroke-width: 1;" x2="427.2" y2="0.0" x1="0" y1="0.0"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="427.2" y2="52.866" x1="0" y1="52.866"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="427.2" y2="105.732" x1="0" y1="105.732"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="427.2" y2="158.598" x1="0" y1="158.598"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="427.2" y2="211.464" x1="0" y1="211.464"/>
+        </g>
+        <g transform="translate(106.8, 0.0)" id="vgrid">
+          <line style="stroke: #999999; stroke-width: 1;" x2="0.0" y2="211.464" x1="0.0" y1="0"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="106.8" y2="211.464" x1="106.8" y1="0"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="213.6" y2="211.464" x1="213.6" y1="0"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="320.4" y2="211.464" x1="320.4" y1="0"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="427.2" y2="211.464" x1="427.2" y1="0"/>
+        </g>
+        <g transform="translate(106.8, 218.592)" id="labels">
+          <text transform="translate(42.72,19.008) rotate(0)" text-anchor="middle" font-size="17.1072" font-family="" y="0" fill="#999999" x="0">12:00</text>
+          <text transform="translate(128.16,19.008) rotate(0)" text-anchor="middle" font-size="17.1072" font-family="" y="0" fill="#999999" x="0">12:07</text>
+          <text transform="translate(213.6,19.008) rotate(0)" text-anchor="middle" font-size="17.1072" font-family="" y="0" fill="#999999" x="0">12:14</text>
+          <text transform="translate(299.04,19.008) rotate(0)" text-anchor="middle" font-size="17.1072" font-family="" y="0" fill="#999999" x="0">12:21</text>
+          <text transform="translate(384.48,19.008) rotate(0)" text-anchor="middle" font-size="17.1072" font-family="" y="0" fill="#999999" x="0">12:29</text>
+        </g>
+        <g transform="translate(106.8, 0.0)" id="graphs">
+          <g class="graph_layer" id="component_graphs_graph_0">
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="0.122688110281447" cy="211.464"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="14.8452613440551" cy="211.212556480381"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="29.5678345778288" cy="210.458225921522"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="44.2904078116025" cy="209.201008323425"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="59.0129810453762" cy="207.440903686088"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="73.7355542791499" cy="205.177912009513"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="88.4581275129236" cy="202.412033293698"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="103.180700746697" cy="199.143267538644"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="117.903273980471" cy="195.371614744352"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="132.625847214245" cy="191.09707491082"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="147.348420448018" cy="186.31964803805"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="162.070993681792" cy="181.03933412604"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="176.793566915566" cy="175.256133174792"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="191.516140149339" cy="168.970045184304"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="206.238713383113" cy="162.181070154578"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="220.961286616887" cy="154.889208085612"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="235.683859850661" cy="147.094458977408"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="250.406433084434" cy="138.796822829964"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="265.129006318208" cy="129.996299643282"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="279.851579551982" cy="120.69288941736"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="294.574152785755" cy="110.8865921522"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="309.296726019529" cy="100.5774078478"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="324.019299253303" cy="89.7653365041617"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="338.741872487076" cy="78.4503781212842"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="353.46444572085" cy="66.6325326991677"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="368.187018954624" cy="54.3118002378122"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="382.909592188397" cy="41.4881807372176"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="397.632165422171" cy="28.1616741973841"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="412.354738655945" cy="14.3322806183115"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="427.077311889719" cy="0.0"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g transform="translate(30.0, 46.8)" id="legend">
+      <rect height="10.8" width="10.8" y="0" fill="#1919B3" x="248.4"/>
+      <text style="color: #999999" font-size="15.552" font-family="" y="11.664" fill="#999999" x="267.84">DNI</text>
+    </g>
+  </g>
+</svg>

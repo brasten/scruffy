@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"  type=""?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="360" width="600">
+  <g id="scruffy_graph">
+    <g transform="translate(0.0, 0.0)" id="background">
+      <defs>
+        <linearGradient x2="0%" y2="100%" x1="0%" id="BackgroundGradient" y1="0%">
+          <stop stop-color="#FFFFFF" offset="5%"/>
+          <stop stop-color="#FFFFFF" offset="95%"/>
+        </linearGradient>
+      </defs>
+      <rect height="360.0" width="600.0" y="0" fill="url(#BackgroundGradient)" x="0"/>
+    </g>
+    <g transform="translate(30.0, 7.2)" id="title">
+      <text text-anchor="middle" class="title" font-size="25.2" font-family="" stroke="none" y="25.2" fill="#999999" stroke-width="0" x="270.0">Some Kind of Information</text>
+    </g>
+    <g transform="translate(12.0, 93.6)" id="view">
+      <g>
+        <g transform="translate(0.0, 4.752)" id="values">
+          <text text-anchor="end" font-size="16.91712" font-family="" y="211.464" fill="#999999" x="96.12">-4</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" y="158.598" fill="#999999" x="96.12">2</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" y="105.732" fill="#999999" x="96.12">7</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" y="52.866" fill="#999999" x="96.12">12</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" y="0.0" fill="#999999" x="96.12">18</text>
+        </g>
+        <g transform="translate(106.8, 0.0)" id="grid">
+          <line style="stroke: #999999; stroke-width: 1;" x2="427.2" y2="0.0" x1="0" y1="0.0"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="427.2" y2="52.866" x1="0" y1="52.866"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="427.2" y2="105.732" x1="0" y1="105.732"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="427.2" y2="158.598" x1="0" y1="158.598"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="427.2" y2="211.464" x1="0" y1="211.464"/>
+        </g>
+        <g transform="translate(106.8, 0.0)" id="vgrid">
+          <line style="stroke: #999999; stroke-width: 1;" x2="0.0" y2="211.464" x1="0.0" y1="0"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="106.8" y2="211.464" x1="106.8" y1="0"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="213.6" y2="211.464" x1="213.6" y1="0"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="320.4" y2="211.464" x1="320.4" y1="0"/>
+          <line style="stroke: #999999; stroke-width: 1;" x2="427.2" y2="211.464" x1="427.2" y1="0"/>
+        </g>
+        <g transform="translate(106.8, 218.592)" id="labels">
+        </g>
+        <g transform="translate(106.8, 0.0)" id="graphs">
+          <g class="graph_layer" id="component_graphs_graph_0">
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="78.6947368421053" cy="173.016"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="101.178947368421" cy="163.404"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="123.663157894737" cy="134.568"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="146.147368421053" cy="86.508"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="168.631578947368" cy="96.12"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="191.115789473684" cy="76.896"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="213.6" cy="57.672"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="236.084210526316" cy="144.18"/>
+            <circle style="stroke-width: 4.22928; stroke: #1919B3; fill: #1919B3" r="4.22928" cx="258.568421052632" cy="48.06"/>
+          </g>
+          <g class="graph_layer" id="component_graphs_graph_1">
+            <polyline style="" points="11.2421052631579,153.792 112.421052631579,115.344 123.663157894737,129.762 415.957894736842,211.464" stroke="#FFB200" fill="none" stroke-width="1"/>
+            <circle style="stroke-width: 1; stroke: #FFB200; fill: #FFB200" r="1" cx="11.2421052631579" cy="153.792"/>
+            <circle style="stroke-width: 1; stroke: #FFB200; fill: #FFB200" r="1" cx="112.421052631579" cy="115.344"/>
+            <circle style="stroke-width: 1; stroke: #FFB200; fill: #FFB200" r="1" cx="123.663157894737" cy="129.762"/>
+            <circle style="stroke-width: 1; stroke: #FFB200; fill: #FFB200" r="1" cx="415.957894736842" cy="211.464"/>
+          </g>
+          <g class="graph_layer" id="component_graphs_graph_2">
+            <circle style="stroke-width: 4.22928; stroke: #FFFF00; fill: #FFFF00" r="4.22928" cx="11.2421052631579" cy="28.836"/>
+            <circle style="stroke-width: 4.22928; stroke: #FFFF00; fill: #FFFF00" r="4.22928" cx="112.421052631579" cy="-2.8421709430404e-14"/>
+            <circle style="stroke-width: 4.22928; stroke: #FFFF00; fill: #FFFF00" r="4.22928" cx="123.663157894737" cy="86.508"/>
+            <circle style="stroke-width: 4.22928; stroke: #FFFF00; fill: #FFFF00" r="4.22928" cx="415.957894736842" cy="115.344"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g transform="translate(30.0, 46.8)" id="legend">
+      <rect height="10.8" width="10.8" y="0" fill="#1919B3" x="135.0"/>
+      <text style="color: #999999" font-size="15.552" font-family="" y="11.664" fill="#999999" x="154.44">Stephanie</text>
+      <rect height="10.8" width="10.8" y="0" fill="#FFB200" x="264.6"/>
+      <text style="color: #999999" font-size="15.552" font-family="" y="11.664" fill="#999999" x="284.04">Artiom</text>
+      <rect height="10.8" width="10.8" y="0" fill="#FFFF00" x="361.8"/>
+      <text style="color: #999999" font-size="15.552" font-family="" y="11.664" fill="#999999" x="381.24">Sam</text>
+    </g>
+  </g>
+</svg>
