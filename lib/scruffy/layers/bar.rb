@@ -8,14 +8,11 @@ module Scruffy::Layers
   class Bar < Base
   
     # Draw bar graph.
+    # Now handles positive and negative values gracefully.
     def draw(svg, coords, options = {})
       coords.each_with_index do |coord,idx|
         x, y, bar_height = (coord.first), coord.last, 1#(height - coord.last)
-        if max_value > 0 and min_value == 0
-          bar_height = (height - y)
-        elsif max_value == 0 and min_value < 0 
-          bar_height =  -1 * y
-        else # here's where we handle graphs with positive and negative values
+        
           valh = max_value + min_value * -1 #value_height
           maxh = max_value * height / valh #positive area height
           minh = min_value * height / valh #negative area height
@@ -25,7 +22,7 @@ module Scruffy::Layers
           else
             bar_height = points[idx]*minh/min_value
           end
-        end
+        
         #puts " y = #{y} and point = #{points[idx]}"  
         svg.g(:transform => "translate(-#{relative(0.5)}, -#{relative(0.5)})") {
           svg.rect( :x => x, :y => y, :width => @bar_width + relative(1), :height => bar_height + relative(1), 
