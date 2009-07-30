@@ -181,6 +181,23 @@ class GraphCreationTest < Test::Unit::TestCase
   end
   
   
+  def test_box_plot
+    graph = Scruffy::Graph.new()
+    graph.title = "Comparative Agent Performance"
+    graph.value_formatter = Scruffy::Formatters::Percentage.new(:precision => 0)
+    graph.add :box, "Test Data", [
+                                [10,8,6,4,2],
+                                [12,9,8.2,4.2,3.5]
+                                ],
+                                {:padding=>:padded}
+    graph.point_markers = ['Jan', 'Feb']
+    graph.render :to => "#{WEBSITE_DIR}/box_plot_test.svg"
+    graph.point_markers_ticks = true
+    graph.render  :width => 900, :to => "#{WEBSITE_DIR}/box_plot_test.png", :as => 'png' if $make_png
+  end
+  
+ 
+  
   def test_rotated_point_markers
     graph = Scruffy::Graph.new({:point_markers_rotation=>30}) #
     graph.title = "Comparative Agent Performance"
