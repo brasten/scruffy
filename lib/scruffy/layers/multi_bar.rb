@@ -9,25 +9,9 @@ module Scruffy::Layers
   # Date:: August 6th, 2006
   #
   # Standard multi_bar graph.  
-  class MultiBar < Base
+  class MultiBar < Bar
   
-    # Draw multi_bar graph.
-    def draw(svg, coords, options = {})
-      coords.each do |coord|
-        x, y, bar_height = (coord.first), coord.last, (height - coord.last)
-
-        #svg.g(:transform => "translate(-#{relative(0.5)}, -#{relative(0.5)})") {
-        #  svg.rect( :x => x, :y => y, :width => @bar_width + relative(1), :height => bar_height + relative(1), 
-        #            :style => "fill: black; fill-opacity: 0.15; stroke: none;" )
-        #  svg.rect( :x => x+relative(0.5), :y => y+relative(2), :width => @bar_width + relative(1), :height => bar_height - relative(0.5), 
-        #            :style => "fill: black; fill-opacity: 0.15; stroke: none;" )
-        #
-        #}
-        
-        svg.rect( :x => x, :y => y, :width => @bar_width, :height => bar_height, 
-                  :fill => color.to_s, 'style' => "opacity: #{opacity}; stroke: none;" )
-      end
-    end
+    
 
     protected
     

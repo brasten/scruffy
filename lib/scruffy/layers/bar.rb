@@ -10,7 +10,7 @@ module Scruffy::Layers
     # Draw bar graph.
     def draw(svg, coords, options = {})
       coords.each_with_index do |coord,idx|
-        x, y, bar_height = (coord.first-(@bar_width * 0.5)), coord.last, 1#(height - coord.last)
+        x, y, bar_height = (coord.first), coord.last, 1#(height - coord.last)
         if max_value > 0 and min_value == 0
           bar_height = (height - y)
         elsif max_value == 0 and min_value < 0 
@@ -59,7 +59,7 @@ module Scruffy::Layers
 
         #TODO more array work with index, try to rework to be accepting of hashes
         coords = (0...points.size).map do |idx| 
-          x_coord = (options[:point_distance] * idx) + (width / points.size * 0.5)
+          x_coord = (options[:point_distance] * idx) + (width / points.size * 0.5) - (@bar_width * 0.5)
 
           relative_percent = ((points[idx] == min_value) ? 0 : ((points[idx] - min_value) / (max_value - min_value).to_f))
           y_coord = (height - (height * relative_percent))
