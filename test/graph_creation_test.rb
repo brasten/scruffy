@@ -51,6 +51,29 @@ class GraphCreationTest < Test::Unit::TestCase
   end
   
   
+  def test_create_line_with_negatives
+    graph = Scruffy::Graph.new
+    graph.title = "Sample Line Graph"
+    graph.renderer = Scruffy::Renderers::Standard.new
+
+    graph.add :line, 'Example', [-20, 100, -70, -30, 106]
+
+    graph.render :to => "#{WEBSITE_DIR}/line_test_with_negatives.svg"
+    graph.render  :width => 400, :to => "#{WEBSITE_DIR}/line_test_with_negatives.png", :as => 'png' if $make_png
+  end
+  
+  
+  def test_create_negative_line
+    graph = Scruffy::Graph.new
+    graph.title = "Sample Line Graph"
+    graph.renderer = Scruffy::Renderers::Standard.new
+
+    graph.add :line, 'Example', [-20, -100, -70, -30, -106]
+
+    graph.render :to => "#{WEBSITE_DIR}/negative_line_test.svg"
+    graph.render  :width => 400, :to => "#{WEBSITE_DIR}/negative_line_test.png", :as => 'png' if $make_png
+  end
+  
   def test_create_small_value_line
     graph = Scruffy::Graph.new
     graph.title = "Sample Line Graph"
@@ -72,6 +95,9 @@ class GraphCreationTest < Test::Unit::TestCase
     graph.render  :width => 400, :to => "#{WEBSITE_DIR}/bar_test.png", :as => 'png' if $make_png
   end
   
+  
+  
+  
   def test_create_bar_with_negatives
     graph = Scruffy::Graph.new
     graph.title = "Sample Bar Graph"
@@ -80,6 +106,17 @@ class GraphCreationTest < Test::Unit::TestCase
     graph.render :to => "#{WEBSITE_DIR}/negative_bar_test.svg"
     graph.render  :width => 400, :to => "#{WEBSITE_DIR}/negative_bar_test.png", :as => 'png' if $make_png
   end
+  
+  
+  def test_create_bar_with_all_negatives
+    graph = Scruffy::Graph.new
+    graph.title = "Sample Bar Graph"
+    graph.renderer = Scruffy::Renderers::Standard.new
+    graph.add :bar, 'Example', [-20, -100,-10, -70, -30, -40, -106]
+    graph.render :to => "#{WEBSITE_DIR}/all_negative_bar_test.svg"
+    graph.render  :width => 400, :to => "#{WEBSITE_DIR}/all_negative_bar_test.png", :as => 'png' if $make_png
+  end
+  
   
   def test_split
     graph = Scruffy::Graph.new
