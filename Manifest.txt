@@ -32,6 +32,7 @@ lib/scruffy/layers/all_smiles.rb
 lib/scruffy/layers/area.rb
 lib/scruffy/layers/average.rb
 lib/scruffy/layers/bar.rb
+lib/scruffy/layers/box.rb
 lib/scruffy/layers/base.rb
 lib/scruffy/layers/line.rb
 lib/scruffy/layers/multi.rb
