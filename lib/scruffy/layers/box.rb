@@ -53,7 +53,9 @@ module Scruffy::Layers
         topval = ( (topval < point_set.max) ? point_set.max : topval )
       end
       #topval = layers.inject(0) { |max, layer| (max = ((max < layer.top_value) ? layer.top_value : max)) unless layer.top_value.nil?; max }
-      padding == :padded ? (topval - ((topval - bottom_value) * 0.15)) : topval
+      below_zero = (topval <= 0)
+      topval = padding == :padded ? (topval + ((topval - bottom_value(nil)) * 0.15)) : topval
+      (below_zero && topval > 0) ? 0 : topval
     end
 
     # Returns the lowest value in any of this container's layers.
@@ -70,8 +72,8 @@ module Scruffy::Layers
       #  (min = ((min > layer.bottom_value) ? layer.bottom_value : min)) unless layer.bottom_value.nil?
       #  min 
       #end
-      above_zero = (botval > 0)
-      botval = (botval - ((top_value - botval) * 0.15)) if padding == :padded
+      above_zero = (botval >= 0)
+      botval = (botval - ((top_value(nil) - botval) * 0.15)) if padding == :padded
     
       # Don't introduce negative values solely due to padding.
       # A user-provided value must be negative before padding will extend into negative values.

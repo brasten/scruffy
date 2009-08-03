@@ -150,8 +150,8 @@ module Scruffy
       options[:size]                ||= (options[:width] ? [options[:width], (options.delete(:width) * 0.6).to_i] : [600, 360])
       options[:title]               ||= title
       options[:layers]              ||= layers
-      options[:min_value]           ||= bottom_value #(:padded)
-      options[:max_value]           ||= top_value
+      options[:min_value]           ||= bottom_value(options[:padding] ? options[:padding] : nil)
+      options[:max_value]           ||= top_value(options[:padding] ? options[:padding] : nil)
       options[:min_key]             ||= bottom_key
       options[:max_key]             ||= top_key
       options[:graph]               ||= self

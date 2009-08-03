@@ -67,7 +67,9 @@ module Scruffy::Helpers
     # If padding is set to :padded, a 15% padding is added to the highest value.
     def top_value(padding=nil) # :nodoc:
       topval = layers.inject(0) { |max, layer| (max = ((max < layer.top_value) ? layer.top_value : max)) unless layer.top_value.nil?; max }
-      padding == :padded ? (topval - ((topval - bottom_value) * 0.15)) : topval
+      below_zero = (topval <= 0)
+      topval = padding == :padded ? (topval + ((topval - bottom_value) * 0.15)) : topval
+      (below_zero && topval > 0) ? 0 : topval
     end
   
     # Returns the lowest value in any of this container's layers.
@@ -80,7 +82,7 @@ module Scruffy::Helpers
         (min = ((min > layer.bottom_value) ? layer.bottom_value : min)) unless layer.bottom_value.nil?
         min 
       end
-      above_zero = (botval > 0)
+      above_zero = (botval >= 0)
       botval = (botval - ((top_value - botval) * 0.15)) if padding == :padded
     
       # Don't introduce negative values solely due to padding.

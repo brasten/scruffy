@@ -193,11 +193,11 @@ class GraphCreationTest < Test::Unit::TestCase
                                 [10,8,6.6,4,2],
                                 [12,9,8.2,4.2,3.5]
                                 ],
-                                {:padding=>:padded}
+                                {}
     graph.point_markers = ['Jan', 'Feb','Jan', 'Feb','Jan', 'Feb']
-    graph.render :to => "#{WEBSITE_DIR}/box_plot_test.svg"
     graph.point_markers_ticks = true
-    graph.render  :width => 900, :to => "#{WEBSITE_DIR}/box_plot_test.png", :as => 'png' if $make_png
+    graph.render :to => "#{WEBSITE_DIR}/box_plot_test.svg",:padding=>:padded
+    graph.render  :size => [900,900], :to => "#{WEBSITE_DIR}/box_plot_test.png", :as => 'png',:padding=>:padded if $make_png
   end
   
  
