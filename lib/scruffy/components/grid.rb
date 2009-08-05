@@ -27,12 +27,25 @@ module Scruffy
       include Scruffy::Helpers::Marker
       
       def draw(svg, bounds, options={})
-        markers = (options[:key_markers] || self.markers) || 5
         
-        stroke_width = options[:stroke_width]
-        
-        each_marker(markers, options[:min_key], options[:max_key], bounds[:width], options, :key_formatter) do |label, x|
-          svg.line(:x1 => x, :y1 => 0, :x2 => x, :y2 => bounds[:height], :style => "stroke: #{options[:theme].marker.to_s}; stroke-width: #{stroke_width};")
+        if options[:graph].point_markers #get vertical grid lines up with points if there are labels for them
+          point_distance = bounds[:width] / (options[:graph].point_markers.size).to_f
+          stroke_width = options[:stroke_width]
+          (0...options[:graph].point_markers.size).map do |idx| 
+            x = point_distance * idx  + point_distance/2
+            svg.line(:x1 => x, :y1 => 0, :x2 => x, :y2 => bounds[:height], :style => "stroke: #{options[:theme].marker.to_s}; stroke-width: #{stroke_width};")
+          end
+          #add the far right and far left lines
+          svg.line(:x1 => 0, :y1 => 0, :x2 => 0, :y2 => bounds[:height], :style => "stroke: #{options[:theme].marker.to_s}; stroke-width: #{stroke_width};")
+          svg.line(:x1 => bounds[:width], :y1 => 0, :x2 => bounds[:width], :y2 => bounds[:height], :style => "stroke: #{options[:theme].marker.to_s}; stroke-width: #{stroke_width};")
+        else
+            
+          markers =  (options[:key_markers] || self.markers) || 5 #options[:point_markers].size#
+          stroke_width = options[:stroke_width]
+          each_marker(markers, options[:min_key], options[:max_key], bounds[:width], options, :key_formatter) do |label, x|
+            svg.line(:x1 => x, :y1 => 0, :x2 => x, :y2 => bounds[:height], :style => "stroke: #{options[:theme].marker.to_s}; stroke-width: #{stroke_width};")
+          end
+          
         end
       end
     end

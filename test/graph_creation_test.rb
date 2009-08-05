@@ -201,8 +201,8 @@ class GraphCreationTest < Test::Unit::TestCase
     theme = Scruffy::Themes::Base.new :background=>"#ffffff", :marker=>"#aaaaaa",
                           :colors=>["#4f83bf","#be514e","#a1ba5e","#82649a"],
                           :outlines=>["#be514e","#a1ba5e","#82649a","#4f83bf"]
-    graph.render :to => "#{WEBSITE_DIR}/box_plot_test.svg",:padding=>:padded,:theme=>theme
-    graph.render  :size => [600,540],:theme=>theme, :to => "#{WEBSITE_DIR}/box_plot_test.png", :as => 'png',:padding=>:padded if $make_png
+    graph.render :to => "#{WEBSITE_DIR}/box_plot_test.svg",:padding=>:padded,:theme=>theme,:key_markers=>8
+    graph.render  :size => [600,540],:theme=>theme,:key_markers=>7, :to => "#{WEBSITE_DIR}/box_plot_test.png", :as => 'png',:padding=>:padded if $make_png
   end
   
  
