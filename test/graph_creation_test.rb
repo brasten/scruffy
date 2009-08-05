@@ -115,8 +115,13 @@ class GraphCreationTest < Test::Unit::TestCase
     graph.title = "Sample Bar Graph"
     graph.renderer = Scruffy::Renderers::Standard.new
     graph.add :bar, 'Example', [-20, -100,-10, -70, -30, -40, -106]
-    graph.render :to => "#{WEBSITE_DIR}/all_negative_bar_test.svg"
-    graph.render  :width => 400, :to => "#{WEBSITE_DIR}/all_negative_bar_test.png", :as => 'png' if $make_png
+    
+    theme = Scruffy::Themes::Base.new :background=>"#ffffff", :marker=>"#444444",
+                          :colors=>["#ff0000","#00ff00","#0000ff","#cccccc"],
+                          :title_font_size => 30, :marker_font_size=>10
+    
+    graph.render :to => "#{WEBSITE_DIR}/all_negative_bar_test.svg",:theme=>theme
+    graph.render  :width => 400,:theme=>theme, :to => "#{WEBSITE_DIR}/all_negative_bar_test.png", :as => 'png' if $make_png
   end
   
   
@@ -177,9 +182,14 @@ class GraphCreationTest < Test::Unit::TestCase
       multi.add :multi_bar, 'Bob', [-10, -20, -30, -40, -50, -60]
     end
     graph.point_markers = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
-    graph.render :to => "#{WEBSITE_DIR}/multi_bar_test.svg"
     graph.point_markers_ticks = true
-    graph.render  :width => 900, :to => "#{WEBSITE_DIR}/multi_bar_test.png", :as => 'png' if $make_png
+    theme = Scruffy::Themes::Base.new :background=>"#ffffff", :marker=>"#444444",
+                          :colors=>["#cccccc","#ff0000","#00ff00","#0000ff"],
+                          :title_font_size => 30, :marker_font_size=>10
+    
+    graph.render :to => "#{WEBSITE_DIR}/multi_bar_test.svg",:theme=>theme
+    
+    graph.render  :width => 900,:theme=>theme, :to => "#{WEBSITE_DIR}/multi_bar_test.png", :as => 'png' if $make_png
   end
   
   

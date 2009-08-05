@@ -18,7 +18,7 @@ module Scruffy::Layers
     # Example:
     #   Multi.new do |multi|
     #     multi << Scruffy::Layers::Line.new( ... )
-    #     multi.add(:bar, 'My Bar', [...])
+    #     multi.add(:multi_bar, 'My Bar', [...])
     #   end
     #
     # The initialize method passes itself to the block, and since multi is a LayerContainer,
@@ -38,13 +38,15 @@ module Scruffy::Layers
         #real_points = layer.points
         #layer.points = current_points
         layer_options = options.dup
-        layer_options[:color] = layer.preferred_color || layer.color || options[:theme].next_color          
+ 
         layer_options[:num_bars] = layers.size
         layer_options[:position] = i
+        layer_options[:color] = layer.preferred_color || layer.color || options[:theme].next_color
         layer.render(svg, layer_options)
+              
         options.merge(layer_options)
-        #layer.points = real_points
         
+        #layer.points = real_points
         #layer.points.each_with_index { |val, idx| current_points[idx] -= val }
       end
     end
