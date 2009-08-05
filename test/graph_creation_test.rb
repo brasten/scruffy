@@ -58,7 +58,8 @@ class GraphCreationTest < Test::Unit::TestCase
 
     graph.add :line, 'Example', [-20, 100, -70, -30, 106]
     theme = Scruffy::Themes::Base.new :background=>"#ffffff", :marker=>"#444444",
-                          :colors=>["#4f83bf","#be514e","#a1ba5e","#82649a"]
+                          :colors=>["#4f83bf","#be514e","#a1ba5e","#82649a"],
+                          :title_font_size => 30, :marker_font_size=>10
     graph.render :to => "#{WEBSITE_DIR}/line_test_with_negatives.svg",:theme=>theme
     graph.render  :width => 400, :to => "#{WEBSITE_DIR}/line_test_with_negatives.png",:theme=>theme, :as => 'png' if $make_png
   end

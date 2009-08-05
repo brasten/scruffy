@@ -23,10 +23,11 @@ module Scruffy
             if options[:point_markers_ticks]
               svg.line(:x1 => x_coord, :y1 => 0, :x2 => x_coord, :y2 => -2, :style => "stroke:#{(options[:theme].marker || 'white').to_s}, stroke-width:1")
             end
+
             svg.text(options[:point_markers][idx],
               :x => 0,
               :y => 0, 
-              'font-size' => relative(90),
+              'font-size' => options[:theme].marker_font_size || relative(90),
               'font-family' => options[:theme].font_family,
               :transform => "translate(#{x_coord},#{bounds[:height]}) rotate(#{options[:point_markers_rotation] || 0})",
               :fill => (options[:theme].marker || 'white').to_s, 

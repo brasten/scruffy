@@ -7,7 +7,7 @@ module Scruffy
             :class => 'title',
             :x => (bounds[:width] / 2),
             :y => bounds[:height], 
-            'font-size' => relative(100),
+            'font-size' => options[:theme].title_font_size || relative(100),
             'font-family' => options[:theme].font_family,
             :fill => options[:theme].marker,
             :stroke => 'none', 'stroke-width' => '0',
