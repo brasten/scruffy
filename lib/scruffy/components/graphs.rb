@@ -31,6 +31,7 @@ module Scruffy
           layer_options[:complexity]  = options[:complexity]
           layer_options[:size]        = [bounds[:width], bounds[:height]]
           layer_options[:color]       = layer.preferred_color || layer.color || options[:theme].next_color
+          layer_options[:outline]       = layer.preferred_outline || layer.outline || options[:theme].next_outline
           layer_options[:opacity]     = opacity_for(idx)
           layer_options[:theme]       = options[:theme]
 

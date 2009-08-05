@@ -57,9 +57,10 @@ class GraphCreationTest < Test::Unit::TestCase
     graph.renderer = Scruffy::Renderers::Standard.new
 
     graph.add :line, 'Example', [-20, 100, -70, -30, 106]
-   
-    graph.render :to => "#{WEBSITE_DIR}/line_test_with_negatives.svg"
-    graph.render  :width => 400, :to => "#{WEBSITE_DIR}/line_test_with_negatives.png", :as => 'png' if $make_png
+    theme = Scruffy::Themes::Base.new :background=>"#ffffff", :marker=>"#444444",
+                          :colors=>["#4f83bf","#be514e","#a1ba5e","#82649a"]
+    graph.render :to => "#{WEBSITE_DIR}/line_test_with_negatives.svg",:theme=>theme
+    graph.render  :width => 400, :to => "#{WEBSITE_DIR}/line_test_with_negatives.png",:theme=>theme, :as => 'png' if $make_png
   end
   
   
@@ -192,12 +193,15 @@ class GraphCreationTest < Test::Unit::TestCase
                                 [12,9,8.2,4.2,3.5],
                                 [10,8,6.6,4,2],
                                 [12,9,8.2,4.2,3.5]
-                                ],
-                                {}
+                                ]
+                                
     graph.point_markers = ['Jan', 'Feb','Jan', 'Feb','Jan', 'Feb']
     graph.point_markers_ticks = true
-    graph.render :to => "#{WEBSITE_DIR}/box_plot_test.svg",:padding=>:padded
-    graph.render  :size => [600,540], :to => "#{WEBSITE_DIR}/box_plot_test.png", :as => 'png',:padding=>:padded if $make_png
+    theme = Scruffy::Themes::Base.new :background=>"#ffffff", :marker=>"#aaaaaa",
+                          :colors=>["#4f83bf","#be514e","#a1ba5e","#82649a"],
+                          :outlines=>["#be514e","#a1ba5e","#82649a","#4f83bf"]
+    graph.render :to => "#{WEBSITE_DIR}/box_plot_test.svg",:padding=>:padded,:theme=>theme
+    graph.render  :size => [600,540],:theme=>theme, :to => "#{WEBSITE_DIR}/box_plot_test.png", :as => 'png',:padding=>:padded if $make_png
   end
   
  

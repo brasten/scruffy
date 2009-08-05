@@ -26,6 +26,7 @@ module Scruffy::Layers
     attr_accessor :points
     attr_accessor :relevant_data
     attr_accessor :preferred_color
+    attr_accessor :preferred_outline
     attr_accessor :options          # On-the-fly values for easy customization / acts as attributes.
     
     # The following attributes are set during the layer's render process,
@@ -34,6 +35,7 @@ module Scruffy::Layers
     attr_reader :height, :width
     attr_reader :min_value, :max_value
     attr_reader :color
+    attr_reader :outline
     attr_reader :opacity
     attr_reader :complexity
 
@@ -47,6 +49,7 @@ module Scruffy::Layers
     # title:: Name/title of data group
     # points:: Array of data points
     # preferred_color:: Color used to render this graph, overrides theme color.
+    # preferred_outline:: Color used to render this graph outline, overrides theme outline.
     # relevant_data:: Rarely used - indicates the data on this graph should not 
     #                 included in any graph data aggregations, such as averaging data points.
     # style:: SVG polyline style. (default: 'fill-opacity: 0; stroke-opacity: 0.35')
@@ -57,6 +60,7 @@ module Scruffy::Layers
     def initialize(options = {})
       @title              = options.delete(:title) || ''
       @preferred_color    = options.delete(:color)
+      @preferred_outline    = options.delete(:outline)
       @relevant_data      = options.delete(:relevant_data) || true
       @points             = options.delete(:points) || []
       @points.extend Scruffy::Helpers::PointContainer unless @points.kind_of? Scruffy::Helpers::PointContainer
@@ -145,6 +149,7 @@ module Scruffy::Layers
       # itself.
       def setup_variables(options = {})
         @color = (preferred_color || options.delete(:color))
+        @outline = (preferred_outline || options.delete(:outline))
         @width, @height = options.delete(:size)
         @min_value, @max_value = options[:min_value], options[:max_value]
         @opacity = options[:opacity] || 1.0

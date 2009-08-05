@@ -32,12 +32,12 @@ module Scruffy::Layers
         #
         #}
         
-        svg.line(:x1=>x+@bar_width/2,:x2=>x+@bar_width/2,:y1=>y[0],:y2=>y[4], :style => "stroke:#{(options[:theme].marker || 'white').to_s}; stroke-width:1")
-        svg.line(:x1=>x+@bar_width/4,:x2=>x+@bar_width/4*3,:y1=>y[0],:y2=>y[0], :style => "stroke:#{(options[:theme].marker || 'white').to_s}; stroke-width:1")
-        svg.line(:x1=>x+@bar_width/4,:x2=>x+@bar_width/4*3,:y1=>y[4],:y2=>y[4], :style => "stroke:#{(options[:theme].marker || 'white').to_s}; stroke-width:1")
+        svg.line(:x1=>x+@bar_width/2,:x2=>x+@bar_width/2,:y1=>y[0],:y2=>y[4], :style => "stroke:#{(outline.to_s || options[:theme].marker || 'white').to_s}; stroke-width:1")
+        svg.line(:x1=>x+@bar_width/4,:x2=>x+@bar_width/4*3,:y1=>y[0],:y2=>y[0], :style => "stroke:#{(outline.to_s || options[:theme].marker || 'white').to_s}; stroke-width:1")
+        svg.line(:x1=>x+@bar_width/4,:x2=>x+@bar_width/4*3,:y1=>y[4],:y2=>y[4], :style => "stroke:#{(outline.to_s || options[:theme].marker || 'white').to_s}; stroke-width:1")
         svg.rect( :x => x, :y => y[1], :width => @bar_width, :height => (y[1]-y[3])*-1, 
-                  :fill => color.to_s, 'style' => "opacity: #{opacity}; stroke:#{(options[:theme].marker || 'white').to_s}; stroke-width:1;" )
-        svg.line(:x1=>x,:x2=>x+@bar_width,:y1=>y[2],:y2=>y[2], :style => "stroke:#{(options[:theme].marker || 'white').to_s}; stroke-width:1")
+                  :fill => color.to_s, 'style' => "opacity: #{opacity}; stroke:#{(outline.to_s || options[:theme].marker || 'white').to_s}; stroke-width:1;" )
+        svg.line(:x1=>x,:x2=>x+@bar_width,:y1=>y[2],:y2=>y[2], :style => "stroke:#{(outline.to_s || options[:theme].marker || 'white').to_s}; stroke-width:1")
         #svg.rect( :x => x, :y => y, :width => @bar_width, :height => bar_height, 
         #          :fill => color.to_s, 'style' => "opacity: #{opacity}; stroke: none;" )
       end

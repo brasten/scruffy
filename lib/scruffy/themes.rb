@@ -19,6 +19,7 @@ module Scruffy::Themes
   class Base
     attr_accessor :background     # Background color or array of two colors
     attr_accessor :colors         # Array of colors for data graphs
+    attr_accessor :outlines       # Array of colors for outlines of elements for data graphs
     attr_accessor :marker         # Marker color for grid lines, values, etc.
     attr_accessor :font_family    # Font family: Not really supported.  Maybe in the future.
 
@@ -34,6 +35,7 @@ module Scruffy::Themes
     def initialize(descriptor)
       self.background = descriptor[:background]
       self.colors     = descriptor[:colors]
+      self.outlines     = descriptor[:outlines]
       self.marker     = descriptor[:marker]
       self.font_family = descriptor[:font_family]
     end
@@ -44,6 +46,17 @@ module Scruffy::Themes
       @previous_color += 1
               
       self.colors[(@previous_color-1) % self.colors.size]
+    end
+    
+    
+    # Returns the next available outline in the outline array.
+    def next_outline
+      @previous_outline = 0 if @previous_outline.nil?
+      @previous_outline += 1
+      if self.outlines.nil?
+        return "#000000"
+      end
+      self.outlines[(@previous_outline-1) % self.outlines.size]
     end
 
     # todo: Implement darken function.
