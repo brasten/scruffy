@@ -13,6 +13,11 @@ module Scruffy
         each_marker(markers, options[:min_value], options[:max_value], bounds[:height], options, :value_formatter) do |label, y|
           svg.line(:x1 => 0, :y1 => y, :x2 => bounds[:width], :y2 => y, :style => "stroke: #{options[:theme].marker.to_s}; stroke-width: #{stroke_width};")
         end
+        
+        #add a 0 line
+        y = (options[:max_value] * bounds[:height])/(options[:max_value] - options[:min_value])
+        svg.line(:x1 => 0, :y1 => y, :x2 => bounds[:width], :y2 => y, :style => "stroke: #{options[:theme].marker.to_s}; stroke-width: #{stroke_width};")
+        
       end
     end
     

@@ -57,7 +57,7 @@ class GraphCreationTest < Test::Unit::TestCase
     graph.renderer = Scruffy::Renderers::Standard.new
 
     graph.add :line, 'Example', [-20, 100, -70, -30, 106]
-
+   
     graph.render :to => "#{WEBSITE_DIR}/line_test_with_negatives.svg"
     graph.render  :width => 400, :to => "#{WEBSITE_DIR}/line_test_with_negatives.png", :as => 'png' if $make_png
   end
@@ -69,9 +69,9 @@ class GraphCreationTest < Test::Unit::TestCase
     graph.renderer = Scruffy::Renderers::Standard.new
 
     graph.add :line, 'Example', [-20, -100, -70, -30, -106]
-
-    graph.render :to => "#{WEBSITE_DIR}/negative_line_test.svg"
-    graph.render  :width => 400, :to => "#{WEBSITE_DIR}/negative_line_test.png", :as => 'png' if $make_png
+    theme = Scruffy::Themes::Apples.new 
+    graph.render :to => "#{WEBSITE_DIR}/negative_line_test.svg",:theme=>theme
+    graph.render  :width => 600,:theme=>theme, :to => "#{WEBSITE_DIR}/negative_line_test.png", :as => 'png' if $make_png
   end
   
   def test_create_small_value_line
@@ -183,7 +183,7 @@ class GraphCreationTest < Test::Unit::TestCase
   
   def test_box_plot
     graph = Scruffy::Graph.new()
-    graph.title = "Comparative Agent Performance"
+    graph.title = "Box Plot Test"
     graph.value_formatter = Scruffy::Formatters::Percentage.new(:precision => 0)
     graph.add :box, "Test Data", [
                                 [10,8,6.2,4,2],
@@ -197,7 +197,7 @@ class GraphCreationTest < Test::Unit::TestCase
     graph.point_markers = ['Jan', 'Feb','Jan', 'Feb','Jan', 'Feb']
     graph.point_markers_ticks = true
     graph.render :to => "#{WEBSITE_DIR}/box_plot_test.svg",:padding=>:padded
-    graph.render  :size => [900,900], :to => "#{WEBSITE_DIR}/box_plot_test.png", :as => 'png',:padding=>:padded if $make_png
+    graph.render  :size => [600,540], :to => "#{WEBSITE_DIR}/box_plot_test.png", :as => 'png',:padding=>:padded if $make_png
   end
   
  
