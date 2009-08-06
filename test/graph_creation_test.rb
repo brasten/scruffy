@@ -196,6 +196,8 @@ class GraphCreationTest < Test::Unit::TestCase
   def test_box_plot
     graph = Scruffy::Graph.new()
     graph.title = "Box Plot Test"
+    graph.x_legend = "Time in Seconds"
+    graph.y_legend = "Inces of Rain"
     graph.value_formatter = Scruffy::Formatters::Percentage.new(:precision => 0)
     graph.add :box, "Test Data", [
                                 [10,8,6.2,4,2],
@@ -208,8 +210,13 @@ class GraphCreationTest < Test::Unit::TestCase
                                 
     graph.point_markers = ['Jan', 'Feb','Jan', 'Feb','Jan', 'Feb']
     graph.point_markers_ticks = true
+    graph.renderer = Scruffy::Renderers::AxisLegend.new
+    
     theme = Scruffy::Themes::Base.new :background=>"#ffffff", :marker=>"#aaaaaa",
                           :colors=>["#4f83bf","#be514e","#a1ba5e","#82649a"],
+                          :legend_font_size=>30,
+                          :title_font_size=>40,
+                          :marker_font_size=>20,
                           :outlines=>["#be514e","#a1ba5e","#82649a","#4f83bf"]
     graph.render :to => "#{WEBSITE_DIR}/box_plot_test.svg",:padding=>:padded,:theme=>theme,:key_markers=>8
     graph.render  :size => [600,540],:theme=>theme,:key_markers=>7, :to => "#{WEBSITE_DIR}/box_plot_test.png", :as => 'png',:padding=>:padded if $make_png

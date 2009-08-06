@@ -79,11 +79,11 @@ module Scruffy
     include Scruffy::Helpers::LayerContainer
 
     # Delegating these getters to the internal state object.
-    def_delegators  :internal_state, :title, :theme, :default_type, 
+    def_delegators  :internal_state, :title,:x_legend,:y_legend, :theme, :default_type, 
                     :point_markers,:point_markers_rotation,:point_markers_ticks, :value_formatter, :rasterizer,
                     :key_formatter
                   
-    def_delegators  :internal_state, :title=, :theme=, :default_type=,
+    def_delegators  :internal_state, :title=, :theme=,:x_legend=,:y_legend=, :default_type=,
                     :point_markers=,:point_markers_rotation=,:point_markers_ticks=, :value_formatter=, :rasterizer=,
                     :key_formatter=
     
@@ -98,6 +98,8 @@ module Scruffy
     # Options:
     #
     # title::  Graph's title
+    # x_legend :: Title for X Axis
+    # y_legend :: Title for Y Axis
     # theme::  A theme object to use when rendering graph
     # layers::  An array of Layers for this graph to use
     # default_type::  A symbol indicating the default type of Layer for this graph
@@ -120,7 +122,7 @@ module Scruffy
       self.value_formatter = Scruffy::Formatters::Number.new
       self.key_formatter = Scruffy::Formatters::Number.new
 
-      %w(title theme layers default_type value_formatter point_markers point_markers_rotation point_markers_ticks rasterizer key_formatter).each do |arg|
+      %w(title x_legend y_legend theme layers default_type value_formatter point_markers point_markers_rotation point_markers_ticks rasterizer key_formatter).each do |arg|
         self.send("#{arg}=".to_sym, options.delete(arg.to_sym)) unless options[arg.to_sym].nil?
       end
       
@@ -149,6 +151,8 @@ module Scruffy
       options[:point_markers_ticks]       ||= point_markers_ticks
       options[:size]                ||= (options[:width] ? [options[:width], (options.delete(:width) * 0.6).to_i] : [600, 360])
       options[:title]               ||= title
+      options[:x_legend]               ||= x_legend
+      options[:y_legend]               ||= y_legend
       options[:layers]              ||= layers
       options[:min_value]           ||= bottom_value(options[:padding] ? options[:padding] : nil)
       options[:max_value]           ||= top_value(options[:padding] ? options[:padding] : nil)

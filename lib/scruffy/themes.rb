@@ -24,6 +24,7 @@ module Scruffy::Themes
     attr_accessor :font_family    # Font family: Not really supported.  Maybe in the future.
     attr_accessor :marker_font_size    # Marker Font Size:
     attr_accessor :title_font_size    # Title Font Size:
+    attr_accessor :legend_font_size    # Legend Font Size:
 
     # Returns a new Scruffy::Themes::Base object.
     #
@@ -42,6 +43,7 @@ module Scruffy::Themes
       self.font_family = descriptor[:font_family]
       self.marker_font_size = descriptor[:marker_font_size]
       self.title_font_size = descriptor[:title_font_size]
+      self.legend_font_size = descriptor[:legend_font_size]
     end
     
     # Returns the next available color in the color array.

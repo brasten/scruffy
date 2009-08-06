@@ -1,5 +1,47 @@
 module Scruffy::Components
-
+  
+  class XLegend < Base
+    def draw(svg, bounds, options={})
+      if options[:title]
+        svg.text(options[:x_legend],
+                 :class => 'title',
+        :x => (bounds[:width] / 2),
+        :y => bounds[:height], 
+            'font-size' => options[:theme].legend_font_size || relative(100),
+            'font-family' => options[:theme].font_family,
+        :fill => options[:theme].marker,
+        :stroke => 'none', 'stroke-width' => '0',
+            'text-anchor' => (@options[:text_anchor] || 'middle'))
+      end
+    end
+  end #XLegend
+  
+  
+  
+  class YLegend < Base
+    def draw(svg, bounds, options={})
+      if options[:title]
+        svg.text(options[:y_legend],
+                 :class => 'title',
+        :x => (0),
+        :y => 0, 
+            'font-size' => options[:theme].legend_font_size || relative(100),
+            'font-family' => options[:theme].font_family,
+            :transform => "translate(#{bounds[:width] / 2},#{bounds[:height]/2}) rotate(#{-90})",
+        :fill => options[:theme].marker,
+        :stroke => 'none', 'stroke-width' => '0',
+            'text-anchor' => (@options[:text_anchor] || 'middle'))
+      end
+    end
+  end #YLegend
+  
+  
+  
+  
+  
+  
+  
+  
   class Legend < Base
     FONT_SIZE = 80
     
@@ -11,18 +53,18 @@ module Scruffy::Components
         set_line_height = 0.08 * bounds[:height]
         @line_height = bounds[:height] / legend_info.length
         @line_height = set_line_height if @line_height >
-          set_line_height
+        set_line_height
       else
         set_line_height = 0.90 * bounds[:height]
         @line_height = set_line_height
       end
-
+      
       text_height = @line_height * FONT_SIZE / 100
       # #TODO how does this related to @points?
       active_width, points = layout(legend_info, vertical)
-
+      
       offset = (bounds[:width] - active_width) / 2    # Nudge over a bit for true centering
-
+      
       # Render Legend
       points.each_with_index do |point, idx|
         if vertical
@@ -38,18 +80,18 @@ module Scruffy::Components
         # "#{x} #{y} #{@line_height} #{size}"
         
         svg.rect(:x => x, 
-          :y => y, 
-          :width => size, 
-          :height => size,
-          :fill => legend_info[idx][:color])
-
+                 :y => y, 
+                 :width => size, 
+                 :height => size,
+                 :fill => legend_info[idx][:color])
+        
         svg.text(legend_info[idx][:title], 
-          :x => x + @line_height, 
-          :y => y + text_height * 0.75,
+                 :x => x + @line_height, 
+                 :y => y + text_height * 0.75,
           'font-size' => text_height, 
           'font-family' => options[:theme].font_family,
-          :style => "color: #{options[:theme].marker || 'white'}",
-          :fill => (options[:theme].marker || 'white'))
+        :style => "color: #{options[:theme].marker || 'white'}",
+        :fill => (options[:theme].marker || 'white'))
       end
     end   # draw
     
@@ -60,9 +102,9 @@ module Scruffy::Components
     def relevant_legend_info(layers, categories=(@options[:category] ? [@options[:category]] : @options[:categories]))
       legend_info = layers.inject([]) do |arr, layer|
         if categories.nil? ||
-            (categories.include?(layer.options[:category]) ||
-              (layer.options[:categories] && (categories & layer.options[:categories]).size > 0) )
-
+         (categories.include?(layer.options[:category]) ||
+         (layer.options[:categories] && (categories & layer.options[:categories]).size > 0) )
+          
           data = layer.legend_data
           arr << data if data.is_a?(Hash)
           arr = arr + data if data.is_a?(Array)
@@ -70,7 +112,7 @@ module Scruffy::Components
         arr
       end
     end   # relevant_legend_info
-      
+    
     # Returns an array consisting of the total width needed by the legend
     # information, as well as an array of @x-coords for each element. If
     # vertical, then these are @y-coords, and @x is 0
@@ -84,7 +126,7 @@ module Scruffy::Components
           longest = longest < cur_length ? cur_length : longest
         }
         y_positions = []
-        (0..legend_info_array.length - 1).each {|y|
+         (0..legend_info_array.length - 1).each {|y|
           y_positions << y * @line_height
         }
         [longest, y_positions]
@@ -94,12 +136,12 @@ module Scruffy::Components
           enum[1] << enum.first                                 # Add location to points
           enum[0] += relative(50)                               # Add room for color box
           enum[0] += (relative(50) * elem[:title].length)       # Add room for text
-
+          
           [enum.first, enum.last]
         end        
       end
     end
-
+    
   end   # class Legend
   
 end   # Scruffy::Components

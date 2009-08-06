@@ -55,6 +55,7 @@ lib/scruffy/renderers/reversed.rb
 lib/scruffy/renderers/sparkline.rb
 lib/scruffy/renderers/split.rb
 lib/scruffy/renderers/standard.rb
+lib/scruffy/renderers/axis_legend.rb
 lib/scruffy/themes.rb
 lib/scruffy/version.rb
 script/console

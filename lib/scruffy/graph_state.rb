@@ -11,6 +11,8 @@ module Scruffy
   class GraphState
 
     attr_accessor :title
+    attr_accessor :x_legend
+    attr_accessor :y_legend
     attr_accessor :theme
     attr_accessor :default_type
     attr_accessor :point_markers
