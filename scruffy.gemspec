@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification 
 name: scruffy
 version: !ruby/object:Gem::Version 
-  version: 0.2.9
+  version: 0.2.10
 platform: ruby
 authors: 
 - Brasten Sager
