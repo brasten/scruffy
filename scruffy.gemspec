@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification 
 name: scruffy
 version: !ruby/object:Gem::Version 
-  version: 0.2.13
+  version: 0.2.14
 platform: ruby
 authors: 
 - Brasten Sager
@@ -52,6 +52,7 @@ files:
 - lib/scruffy/layers/line.rb
 - lib/scruffy/layers/box.rb
 - lib/scruffy/layers/multi.rb
+- lib/scruffy/layers/multi_bar.rb
 - lib/scruffy/rasterizers.rb
 - lib/scruffy/renderers.rb
 - lib/scruffy/themes.rb
@@ -66,7 +67,7 @@ files:
 - lib/scruffy/components/value_markers.rb
 - lib/scruffy/components/viewport.rb
 - lib/scruffy/components/base.rb
-- lib/scruffy/components/graphs.rb
+- lib/scruffy/components/- lib/scruffy/layers/multi.rbgraphs.rb
 - lib/scruffy/components/background.rb
 - lib/scruffy/components/legend.rb
 - lib/scruffy/components/data_markers.rb
