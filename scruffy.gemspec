@@ -67,7 +67,7 @@ files:
 - lib/scruffy/components/value_markers.rb
 - lib/scruffy/components/viewport.rb
 - lib/scruffy/components/base.rb
-- lib/scruffy/components/- lib/scruffy/layers/multi.rbgraphs.rb
+- lib/scruffy/components/graphs.rb
 - lib/scruffy/components/background.rb
 - lib/scruffy/components/legend.rb
 - lib/scruffy/components/data_markers.rb
