@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification 
 name: scruffy
 version: !ruby/object:Gem::Version 
-  version: 0.2.14
+  version: 0.2.15
 platform: ruby
 authors: 
 - Brasten Sager
@@ -84,6 +84,7 @@ files:
 - lib/scruffy/renderers/pie.rb
 - lib/scruffy/renderers/empty.rb
 - lib/scruffy/renderers/cubed.rb
+- lib/scruffy/renderers/axis_legend.rb
 - lib/scruffy/formatters.rb
 - lib/scruffy/helpers.rb
 - lib/scruffy/layers.rb
