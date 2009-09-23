@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification 
 name: scruffy
 version: !ruby/object:Gem::Version 
-  version: 0.2.12
+  version: 0.2.13
 platform: ruby
 authors: 
 - Brasten Sager
@@ -51,6 +51,7 @@ files:
 - lib/scruffy/layers/average.rb
 - lib/scruffy/layers/line.rb
 - lib/scruffy/layers/box.rb
+- lib/scruffy/layers/multi.rb
 - lib/scruffy/rasterizers.rb
 - lib/scruffy/renderers.rb
 - lib/scruffy/themes.rb
