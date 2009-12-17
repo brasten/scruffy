@@ -16,7 +16,7 @@ module Scruffy
             :y => (bounds[:height] - y), 
             'font-size' => options[:theme].marker_font_size || relative(8),
             'font-family' => options[:theme].font_family,
-            :fill => ((options.delete(:marker_color_override) || options[:theme].marker) || 'white').to_s,
+            :fill => ((options[:marker_color_override] || options[:theme].marker) || 'white').to_s,
             'text-anchor' => 'end')
         end
       end
