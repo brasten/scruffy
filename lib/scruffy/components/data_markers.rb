@@ -12,19 +12,18 @@ module Scruffy
           markers = (options[:markers] || self.markers) || 5
           options[:point_markers] = []
           each_marker(markers, options[:min_key], options[:max_key], bounds[:width], options, :key_formatter) do |label, x|
-            options[:point_markers] << label
+            options[:point_markers] << [x, label]
           end
         end
         unless options[:point_markers].nil?
-          # Updated to set the label in line with the point.
-          point_distance = bounds[:width] / (options[:point_markers].size).to_f
+          dx = bounds[:width].to_f / (options[:max_key] - options[:min_key] + 1)
           (0...options[:point_markers].size).map do |idx| 
-            x_coord = point_distance * idx  + point_distance/2
+            x_coord = dx * (options[:point_markers][idx].first - options[:min_key]) + dx/2
             if options[:point_markers_ticks]
               svg.line(:x1 => x_coord, :y1 => 0, :x2 => x_coord, :y2 => -2, :style => "stroke:#{(options[:theme].marker || 'white').to_s}, stroke-width:1")
             end
 
-            svg.text(options[:point_markers][idx],
+            svg.text(options[:point_markers][idx].last,
               :x => 0,
               :y => 0, 
               'font-size' => options[:theme].marker_font_size || relative(90),
