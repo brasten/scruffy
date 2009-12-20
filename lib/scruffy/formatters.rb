@@ -168,9 +168,12 @@ module Scruffy::Formatters
           number = "(" + @unit + parts[0].to_i.abs.to_s.gsub(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1#{@delimiter}") + @separator + parts[1].to_s + ")"
         else
           number = @unit + parts[0].to_s.gsub(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1#{@delimiter}") + @separator + parts[1].to_s
+          number.gsub!(@unit + '-', '-' + @unit)
         end
         if (target.to_f < 0) && @negative_color
           options[:marker_color_override] = @negative_color
+        else
+          options[:marker_color_override] = nil
         end
         number
       rescue
