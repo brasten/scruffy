@@ -1,13 +1,14 @@
 --- !ruby/object:Gem::Specification 
 name: scruffy
 version: !ruby/object:Gem::Version 
-  version: 0.2.15
+  version: 0.2.16
 platform: ruby
 authors: 
 - Brasten Sager
 - Jeremy Green
 - samhendley
 - delano
+- willbryant
 autorequire: 
 bindir: bin
 cert_chain: []
@@ -73,6 +74,7 @@ files:
 - lib/scruffy/components/data_markers.rb
 - lib/scruffy/components/label.rb
 - lib/scruffy/components/grid.rb
+- lib/scruffy/components/axes.rb
 - lib/scruffy/components/title.rb
 - lib/scruffy/graph.rb
 - lib/scruffy/renderers/sparkline.rb
