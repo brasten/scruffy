@@ -20,7 +20,7 @@ module Scruffy
           (0...options[:point_markers].size).map do |idx| 
             x_coord = dx * (options[:point_markers][idx].first - options[:min_key]) + dx/2
             if options[:point_markers_ticks]
-              svg.line(:x1 => x_coord, :y1 => 0, :x2 => x_coord, :y2 => -2, :style => "stroke:#{(options[:theme].marker || 'white').to_s}; stroke-width:1")
+              svg.line(:x1 => x_coord, :y1 => 0, :x2 => x_coord, :y2 => -3, :style => "stroke:#{(options[:theme].marker || 'white').to_s}; stroke-width:1")
             end
 
             svg.text(options[:point_markers][idx].last,
