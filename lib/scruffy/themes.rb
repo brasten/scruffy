@@ -20,6 +20,7 @@ module Scruffy::Themes
     attr_accessor :background     # Background color or array of two colors
     attr_accessor :colors         # Array of colors for data graphs
     attr_accessor :outlines       # Array of colors for outlines of elements for data graphs
+    attr_accessor :grid           # Marker color for grid lines, etc.
     attr_accessor :marker         # Marker color for grid lines, values, etc.
     attr_accessor :font_family    # Font family: Not really supported.  Maybe in the future.
     attr_accessor :marker_font_size    # Marker Font Size:
@@ -39,6 +40,7 @@ module Scruffy::Themes
       self.background = descriptor[:background]
       self.colors     = descriptor[:colors]
       self.outlines     = descriptor[:outlines]
+      self.grid     = descriptor[:grid]
       self.marker     = descriptor[:marker]
       self.font_family = descriptor[:font_family]
       self.marker_font_size = descriptor[:marker_font_size]

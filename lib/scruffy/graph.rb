@@ -118,7 +118,7 @@ module Scruffy
       
       self.theme = Scruffy::Themes::Standard.new
       self.renderer = Scruffy::Renderers::Standard.new
-      self.rasterizer = Scruffy::Rasterizers::RMagickRasterizer.new
+      self.rasterizer = Scruffy::Rasterizers::MiniMagickRasterizer.new
       self.value_formatter = Scruffy::Formatters::Number.new
       self.key_formatter = Scruffy::Formatters::Number.new
 

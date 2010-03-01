@@ -11,6 +11,7 @@ module Scruffy::Layers
     # Now handles positive and negative values gracefully.
     def draw(svg, coords, options = {})
       coords.each_with_index do |coord,idx|
+        next if coord.nil?
         x, y, bar_height = (coord.first), coord.last, 1#(height - coord.last)
         
           valh = max_value + min_value * -1 #value_height
@@ -24,16 +25,19 @@ module Scruffy::Layers
           end
         
         #puts " y = #{y} and point = #{points[idx]}"  
-        svg.g(:transform => "translate(-#{relative(0.5)}, -#{relative(0.5)})") {
-          svg.rect( :x => x, :y => y, :width => @bar_width + relative(1), :height => bar_height + relative(1), 
-                    :style => "fill: black; fill-opacity: 0.15; stroke: none;" )
-          svg.rect( :x => x+relative(0.5), :y => y+relative(2), :width => @bar_width + relative(1), :height => bar_height - relative(0.5), 
-                    :style => "fill: black; fill-opacity: 0.15; stroke: none;" )
-
-        }
+        unless options[:border] == false
+          svg.g(:transform => "translate(-#{relative(0.5)}, -#{relative(0.5)})") {
+            svg.rect( :x => x, :y => y, :width => @bar_width + relative(1), :height => bar_height + relative(1), 
+                      :style => "fill: black; fill-opacity: 0.15; stroke: none;" )
+            svg.rect( :x => x+relative(0.5), :y => y+relative(2), :width => @bar_width + relative(1), :height => bar_height - relative(0.5), 
+                      :style => "fill: black; fill-opacity: 0.15; stroke: none;" )
+          }
+        end
+        
+        current_colour = color.is_a?(Array) ? color[idx % color.size] : color
         
         svg.rect( :x => x, :y => y, :width => @bar_width, :height => bar_height, 
-                  :fill => color.to_s, 'style' => "opacity: #{opacity}; stroke: none;" )
+          :fill => current_colour.to_s, 'style' => "opacity: #{opacity}; stroke: none;" )
       end
     end
 
@@ -51,11 +55,12 @@ module Scruffy::Layers
       # up with the center of bar charts.
       
       def generate_coordinates(options = {})
-        @bar_width = (width / points.size) * 0.9
+        @bar_width = (width / points.size) * 0.95
         options[:point_distance] = (width - (width / points.size)) / (points.size - 1).to_f
 
         #TODO more array work with index, try to rework to be accepting of hashes
-        coords = (0...points.size).map do |idx| 
+        coords = (0...points.size).map do |idx|
+          next if points[idx].nil? 
           x_coord = (options[:point_distance] * idx) + (width / points.size * 0.5) - (@bar_width * 0.5)
 
           relative_percent = ((points[idx] == min_value) ? 0 : ((points[idx] - min_value) / (max_value - min_value).to_f))
