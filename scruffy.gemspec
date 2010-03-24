@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification 
-name: scruffy
+name: tlconnor-scruffy
 version: !ruby/object:Gem::Version 
-  version: 0.2.16
+  version: 0.2.17
 platform: ruby
 authors: 
 - Brasten Sager
@@ -9,6 +9,7 @@ authors:
 - samhendley
 - delano
 - willbryant
+- tlconnor
 autorequire: 
 bindir: bin
 cert_chain: []
