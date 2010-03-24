@@ -38,6 +38,7 @@ extra_rdoc_files: []
 
 files: 
 - lib/scruffy/rasterizers/rmagick_rasterizer.rb
+- lib/scruffy/rasterizers/mini_magick_rasterizer.rb
 - lib/scruffy/rasterizers/batik_rasterizer.rb
 - lib/scruffy/version.rb
 - lib/scruffy/layers/base.rb
