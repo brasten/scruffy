@@ -15,6 +15,7 @@ end
 
 require 'scruffy/layers/base'
 require 'scruffy/layers/area'
+require 'scruffy/layers/multi_area'
 require 'scruffy/layers/all_smiles'
 require 'scruffy/layers/bar'
 require 'scruffy/layers/box'
