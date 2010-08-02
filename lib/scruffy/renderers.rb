@@ -13,6 +13,7 @@
 module Scruffy::Renderers; end
 
 require 'scruffy/renderers/base'
+require 'scruffy/renderers/basic'
 require 'scruffy/renderers/empty'
 require 'scruffy/renderers/standard'
 require 'scruffy/renderers/axis_legend'
