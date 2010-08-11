@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "tlconnor-scruffy"
-  s.version = "0.2.17"
+  s.version = "0.2.18"
   s.authors = ["Brasten Sager", "samhendley", "delano","jagthedrummer", "tlconnor"]
   s.date = "2010-02-23"
   s.description = "Scruffy is a Ruby library for generating high quality, good looking graphs. It is designed to be easy to use and highly customizable."
