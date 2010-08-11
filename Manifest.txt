@@ -44,6 +44,7 @@ lib/scruffy/layers/sparkline_bar.rb
 lib/scruffy/layers/stacked.rb
 lib/scruffy/rasterizers.rb
 lib/scruffy/rasterizers/batik_rasterizer.rb
+lib/scruffy/rasterizers/mini_magick_rasterizer.rb
 lib/scruffy/rasterizers/rmagick_rasterizer.rb
 lib/scruffy/renderers.rb
 lib/scruffy/renderers/base.rb
