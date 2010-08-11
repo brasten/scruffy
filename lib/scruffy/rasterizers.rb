@@ -11,4 +11,5 @@
 module Scruffy::Rasterizers; end
 
 require 'scruffy/rasterizers/rmagick_rasterizer.rb'
+require 'scruffy/rasterizers/mini_magick_rasterizer.rb'
 require 'scruffy/rasterizers/batik_rasterizer.rb'
