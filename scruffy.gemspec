@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification 
 name: tlconnor-scruffy
 version: !ruby/object:Gem::Version 
-  version: 0.2.17
+  version: 0.2.18
 platform: ruby
 authors: 
 - Brasten Sager
