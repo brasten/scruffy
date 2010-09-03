@@ -1,2 +1,8 @@
+$:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+
+require 'rubygems'
+require 'bundler/setup'
+
 require 'test/unit'
-require File.dirname(__FILE__) + '/../lib/scruffy'
+require 'scruffy'
+

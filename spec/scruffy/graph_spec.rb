@@ -16,7 +16,7 @@ end
 describe "A new Scruffy::Graph" do
   include CustomRenderers
   
-  setup do
+  before do
     @graph = Scruffy::Graph.new
   end
   
@@ -25,7 +25,7 @@ describe "A new Scruffy::Graph" do
   end
   
   it "should be set to the keynote theme" do
-    @graph.theme.class.should equal(Scruffy::Themes::Keynote)
+    @graph.theme.class.should == Scruffy::Themes::Standard
   end
   
   it "should have zero layers" do
@@ -131,7 +131,7 @@ end
 
 
 context "A fully populated Graph" do
-  setup do
+  before do
     FileUtils.rm_f File.dirname(__FILE__) + '/*.png'
     FileUtils.rm_f File.dirname(__FILE__) + '/*.jpg'
 

@@ -1,4 +1,3 @@
-require 'test/unit'
 require 'test_helper'
 
 class SimpleTheme < Scruffy::Themes::Base

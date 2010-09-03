@@ -1,6 +1,3 @@
-$:.unshift(File.dirname(__FILE__)) unless
-  $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
-
 # ===Scruffy Graphing Library for Ruby
 #
 # Author:: Brasten Sager
@@ -14,8 +11,6 @@ $:.unshift(File.dirname(__FILE__)) unless
 module Scruffy
 end
   
-require 'rubygems'
-gem 'builder', '>= 2.0'
 require 'builder'
 
 require 'scruffy/helpers'
