@@ -1,0 +1,22 @@
+PATH
+  remote: .
+  specs:
+    scruffy (0.2.6)
+      builder (~> 2.0)
+      rmagick (~> 2.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    builder (2.1.2)
+    rmagick (2.13.1)
+    rspec (1.3.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  builder (~> 2.0)
+  rmagick (~> 2.0)
+  rspec (~> 1.1)
+  scruffy!

@@ -1,139 +1,27 @@
---- !ruby/object:Gem::Specification 
-name: tlconnor-scruffy
-version: !ruby/object:Gem::Version 
-  version: 0.2.18
-platform: ruby
-authors: 
-- Brasten Sager
-- Jeremy Green
-- samhendley
-- delano
-- willbryant
-- tlconnor
-autorequire: 
-bindir: bin
-cert_chain: []
+lib = File.expand_path('../lib/', __FILE__)
+$:.unshift lib unless $:.include?(lib)
 
-date: 2009-01-23 00:00:00 -05:00
-default_executable: 
-dependencies: 
-- !ruby/object:Gem::Dependency 
-  name: builder
-  type: :runtime
-  version_requirement: 
-  version_requirements: !ruby/object:Gem::Requirement 
-    requirements: 
-    - - ">="
-      - !ruby/object:Gem::Version 
-        version: 2.0.0
-    version: 
-description: Scruffy is a Ruby library for generating high quality, good looking graphs. It is designed to be easy to use and highly customizable.
-email: 
-- brasten@nagilum.com
-- david.parry@suranyami.com
-executables: []
+require 'scruffy/version'
 
-extensions: []
+Gem::Specification.new do |s|
+  s.name = "scruffy"
+  s.version = Scruffy::VERSION
 
-extra_rdoc_files: []
+  s.authors = ["brasten", "Jeremy Green", "samhendley", "delano", "willbryant", "tlconner", "Jonas Nicklas"]
+  s.email = ["brasten@nagilum.com", "david.parry@suranyami.com", "jonas.nicklas@gmail.com"]
+  s.description = "Scruffy is a library for outputting graphs to image or SVG"
 
-files: 
-- lib/scruffy/rasterizers/rmagick_rasterizer.rb
-- lib/scruffy/rasterizers/mini_magick_rasterizer.rb
-- lib/scruffy/rasterizers/batik_rasterizer.rb
-- lib/scruffy/version.rb
-- lib/scruffy/layers/base.rb
-- lib/scruffy/layers/area.rb
-- lib/scruffy/layers/stacked.rb
-- lib/scruffy/layers/pie_slice.rb
-- lib/scruffy/layers/scatter.rb
-- lib/scruffy/layers/bar.rb
-- lib/scruffy/layers/sparkline_bar.rb
-- lib/scruffy/layers/pie.rb
-- lib/scruffy/layers/all_smiles.rb
-- lib/scruffy/layers/average.rb
-- lib/scruffy/layers/line.rb
-- lib/scruffy/layers/box.rb
-- lib/scruffy/layers/multi.rb
-- lib/scruffy/layers/multi_bar.rb
-- lib/scruffy/rasterizers.rb
-- lib/scruffy/renderers.rb
-- lib/scruffy/themes.rb
-- lib/scruffy/helpers/canvas.rb
-- lib/scruffy/helpers/point_container.rb
-- lib/scruffy/helpers/layer_container.rb
-- lib/scruffy/helpers/meta.rb
-- lib/scruffy/helpers/marker_helper.rb
-- lib/scruffy/components.rb
-- lib/scruffy/graph_state.rb
-- lib/scruffy/components/style_info.rb
-- lib/scruffy/components/value_markers.rb
-- lib/scruffy/components/viewport.rb
-- lib/scruffy/components/base.rb
-- lib/scruffy/components/graphs.rb
-- lib/scruffy/components/background.rb
-- lib/scruffy/components/legend.rb
-- lib/scruffy/components/data_markers.rb
-- lib/scruffy/components/label.rb
-- lib/scruffy/components/grid.rb
-- lib/scruffy/components/axes.rb
-- lib/scruffy/components/title.rb
-- lib/scruffy/graph.rb
-- lib/scruffy/renderers/sparkline.rb
-- lib/scruffy/renderers/base.rb
-- lib/scruffy/renderers/reversed.rb
-- lib/scruffy/renderers/split.rb
-- lib/scruffy/renderers/cubed3d.rb
-- lib/scruffy/renderers/standard.rb
-- lib/scruffy/renderers/pie.rb
-- lib/scruffy/renderers/empty.rb
-- lib/scruffy/renderers/cubed.rb
-- lib/scruffy/renderers/axis_legend.rb
-- lib/scruffy/formatters.rb
-- lib/scruffy/helpers.rb
-- lib/scruffy/layers.rb
-- lib/scruffy.rb
-- LICENCE.txt
-- README.txt
-- CHANGES.txt
-- Manifest.txt
-has_rdoc: true
-homepage: http://scruffy.rubyforge.org
-post_install_message: 
-rdoc_options: 
-- --quiet
-- --title
-- scruffy documentation
-- --opname
-- index.html
-- --line-numbers
-- --main
-- README.txt
-- --inline-source
-require_paths: 
-- lib
-required_ruby_version: !ruby/object:Gem::Requirement 
-  requirements: 
-  - - ">="
-    - !ruby/object:Gem::Version 
-      version: "0"
-  version: 
-required_rubygems_version: !ruby/object:Gem::Requirement 
-  requirements: 
-  - - ">="
-    - !ruby/object:Gem::Version 
-      version: "0"
-  version: 
-requirements: []
+  s.files = Dir.glob("{lib,spec}/**/*") + %w(README.txt History.txt)
+  s.extra_rdoc_files = ["README.rdoc"]
 
-rubyforge_project: 
-rubygems_version: 1.2.0
-signing_key: 
-specification_version: 2
-summary: A powerful, clean graphing library for Ruby.
-test_files: 
-- test/graph_creation_test.rb
-- test/test_helper.rb
+  s.homepage = "http://github.com/brasten/scruffy"
+  s.rdoc_options = ["--main", "README.txt"]
+  s.require_paths = ["lib"]
+  s.rubygems_version = "1.3.6"
+  s.summary = "Scruffy is a library for outputting graphs to image or SVG"
 
+  s.add_dependency 'builder', '~> 2.0'
+#  s.add_dependency 'rmagick', '~> 2.0'
+  s.add_development_dependency 'rspec', '~> 1.1'
 
-
+end
