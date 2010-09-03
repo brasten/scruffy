@@ -4,3 +4,4 @@ spec/output/
 .project
 *~
 *.swp
+.bundle

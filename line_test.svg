@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"  type=""?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" height="360" xmlns="http://www.w3.org/2000/svg" width="600">
+  <g id="scruffy_graph">
+    <g transform="translate(0.0, 0.0)" id="background">
+      <defs>
+        <linearGradient y2="100%" x1="0%" y1="0%" id="BackgroundGradient" x2="0%">
+          <stop offset="5%" stop-color="#FFFFFF"/>
+          <stop offset="95%" stop-color="#FFFFFF"/>
+        </linearGradient>
+      </defs>
+      <rect height="360.0" x="0" fill="url(#BackgroundGradient) #FFFFFF" y="0" width="600.0"/>
+    </g>
+    <g transform="translate(30.0, 7.2)" id="title">
+      <text x="270.0" fill="#999999" stroke="none" text-anchor="middle" class="title" y="25.2" font-size="25.2" font-family="" stroke-width="0">Sample Line Graph</text>
+    </g>
+    <g transform="translate(12.0, 93.6)" id="view">
+      <g>
+        <g transform="translate(0.0, 4.752)" id="values">
+          <text x="43.2" fill="#999999" text-anchor="end" y="211.464" font-size="16.91712" font-family="">0</text>
+          <text x="43.2" fill="#999999" text-anchor="end" y="158.598" font-size="16.91712" font-family="">26</text>
+          <text x="43.2" fill="#999999" text-anchor="end" y="105.732" font-size="16.91712" font-family="">53</text>
+          <text x="43.2" fill="#999999" text-anchor="end" y="52.866" font-size="16.91712" font-family="">80</text>
+          <text x="43.2" fill="#999999" text-anchor="end" y="0.0" font-size="16.91712" font-family="">106</text>
+        </g>
+        <g transform="translate(54.0, 0.0)" id="grid">
+          <line y2="0.0" style="stroke: #999999; stroke-width: 1;" x1="0" y1="0.0" x2="486.0"/>
+          <line y2="52.866" style="stroke: #999999; stroke-width: 1;" x1="0" y1="52.866" x2="486.0"/>
+          <line y2="105.732" style="stroke: #999999; stroke-width: 1;" x1="0" y1="105.732" x2="486.0"/>
+          <line y2="158.598" style="stroke: #999999; stroke-width: 1;" x1="0" y1="158.598" x2="486.0"/>
+          <line y2="211.464" style="stroke: #999999; stroke-width: 1;" x1="0" y1="211.464" x2="486.0"/>
+          <line y2="211.464" style="stroke: #999999; stroke-width: 1;" x1="0" y1="211.464" x2="486.0"/>
+        </g>
+        <g transform="translate(54.0, 0.0)" id="vgrid">
+          <line y2="211.464" style="stroke: #999999; stroke-width: 1;" x1="0.0" y1="0" x2="0.0"/>
+          <line y2="211.464" style="stroke: #999999; stroke-width: 1;" x1="121.5" y1="0" x2="121.5"/>
+          <line y2="211.464" style="stroke: #999999; stroke-width: 1;" x1="243.0" y1="0" x2="243.0"/>
+          <line y2="211.464" style="stroke: #999999; stroke-width: 1;" x1="364.5" y1="0" x2="364.5"/>
+          <line y2="211.464" style="stroke: #999999; stroke-width: 1;" x1="486.0" y1="0" x2="486.0"/>
+        </g>
+        <g transform="translate(54.0, 218.592)" id="labels">
+        </g>
+        <g transform="translate(54.0, 0.0)" id="graphs">
+          <g class="graph_layer" id="component_graphs_graph_0">
+            <polyline fill="none" stroke="#1919B3" style="" points="48.6,171.565132075472 145.8,11.9696603773585 243.0,71.817962264151 340.2,151.615698113208 437.4,0.0" stroke-width="1"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g transform="translate(30.0, 46.8)" id="legend">
+      <rect x="226.8" height="10.8" fill="#1919B3" y="0" width="10.8"/>
+      <text x="246.24" fill="#999999" style="color: #999999" y="11.664" font-size="15.552" font-family="">Example</text>
+    </g>
+  </g>
+</svg>
