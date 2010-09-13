@@ -10,7 +10,13 @@ module Scruffy::Rasterizers
     def rasterize(svg, options={})
       # I know this seems weird, I'm open to suggestions.
       # I didn't want RMagick required unless absolutely necessary.
-      require 'rmagick'
+      unless defined? Magick
+        begin
+          require 'rmagick'
+        rescue LoadError
+          require 'RMagick'
+        end
+      end
 
       image = Magick::Image::from_blob(svg)[0]
 
