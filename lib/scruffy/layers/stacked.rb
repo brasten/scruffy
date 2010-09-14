@@ -63,6 +63,7 @@ module Scruffy::Layers
     def points
       longest_arr = layers.inject(nil) do |longest, layer|
         longest = layer.points if (longest.nil? || longest.size < layer.points.size)
+        longest
       end
       
       summed_points = (0...longest_arr.size).map do |idx|
