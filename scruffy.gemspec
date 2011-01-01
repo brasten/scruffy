@@ -12,7 +12,6 @@ Gem::Specification.new do |s|
   s.description = "Scruffy is a library for outputting graphs to image or SVG"
 
   s.files = Dir.glob("{lib,spec}/**/*") + %w(README.txt History.txt)
-  s.extra_rdoc_files = ["README.rdoc"]
 
   s.homepage = "http://github.com/brasten/scruffy"
   s.rdoc_options = ["--main", "README.txt"]
@@ -21,7 +20,8 @@ Gem::Specification.new do |s|
   s.summary = "Scruffy is a library for outputting graphs to image or SVG"
 
   s.add_dependency 'builder', '~> 2.0'
+  # This shouldn't be a dependency, as it's possible to use Scruffy without it.
 #  s.add_dependency 'rmagick', '~> 2.0'
-  s.add_development_dependency 'rspec', '~> 1.1'
+  s.add_development_dependency 'rspec', '~> 2.3'
 
 end
