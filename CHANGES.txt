@@ -1,5 +1,11 @@
 = Scruffy Changelog
 
+== Version 0.3.0.beta1
+(January 1st, 2011)
+* Really? 2011? Wow.
+* Merged in divergent forks from github
+* Probably broken, but lets get it fixed.
+
 == Version 0.2.6
 (December 12th, 2008)
 * Forked from the official 0.2.5 release (http://github.com/delano/scruffy/)
