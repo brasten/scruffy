@@ -74,7 +74,7 @@ module Scruffy
   #   doesn't necessarily mean they will make any logical sense together.  We leave those decisions up to you. :)
 
   class Graph
-    extend Forwardable;
+    extend Forwardable
     
     include Scruffy::Helpers::LayerContainer
 

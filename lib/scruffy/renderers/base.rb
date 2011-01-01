@@ -32,7 +32,7 @@ module Scruffy::Renderers
       svg = Builder::XmlMarkup.new(:indent => 2)
       unless options[:no_doctype_header]
         svg.instruct!
-        svg.instruct! 'DOCTYPE', 'svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"  type'
+        svg.declare! :DOCTYPE, :svg, :PUBLIC, "-//W3C//DTD SVG 1.0//EN", "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd", :type
       end
       svg.svg(:xmlns => "http://www.w3.org/2000/svg", 'xmlns:xlink' => "http://www.w3.org/1999/xlink", :width => options[:size].first, :height => options[:size].last) {
         svg.g(:id => options[:graph_id]) {

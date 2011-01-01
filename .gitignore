@@ -1,3 +1,5 @@
+.rspec
+autotest/
 /.idea/
 website/images/graphs/*
 spec/output/

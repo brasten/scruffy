@@ -128,9 +128,9 @@ describe "A Scruffy::Graph's initialization block" do
       @graph.point_markers.should == options[:point_markers]
   end
 end
+                       ''
 
-
-context "A fully populated Graph" do
+describe "A fully populated Graph" do
   before do
     FileUtils.rm_f File.dirname(__FILE__) + '/*.png'
     FileUtils.rm_f File.dirname(__FILE__) + '/*.jpg'
@@ -162,8 +162,8 @@ context "A fully populated Graph" do
 end
 
 
-context "A graph with hash data" do
-  specify "should render identically to a graph with array data" do
+describe "A graph with hash data" do
+  it "should render identically to a graph with array data" do
     @hashgraph = Scruffy::Graph.new :title => 'Graph'
     @hashgraph.add(:line, 'Data', { 0 => 1, 1 => 2, 3 => 4 })
     

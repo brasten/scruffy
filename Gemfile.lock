@@ -1,22 +1,22 @@
-PATH
-  remote: .
-  specs:
-    scruffy (0.2.6)
-      builder (~> 2.0)
-      rmagick (~> 2.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
-    builder (2.1.2)
-    rmagick (2.13.1)
-    rspec (1.3.0)
+    builder (3.0.0)
+    diff-lcs (1.1.2)
+    rcov (0.9.9)
+    rspec (2.3.0)
+      rspec-core (~> 2.3.0)
+      rspec-expectations (~> 2.3.0)
+      rspec-mocks (~> 2.3.0)
+    rspec-core (2.3.1)
+    rspec-expectations (2.3.0)
+      diff-lcs (~> 1.1.2)
+    rspec-mocks (2.3.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  builder (~> 2.0)
-  rmagick (~> 2.0)
-  rspec (~> 1.1)
-  scruffy!
+  builder (>= 2.0.0)
+  rcov
+  rspec

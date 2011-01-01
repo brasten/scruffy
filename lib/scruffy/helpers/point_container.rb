@@ -12,11 +12,11 @@ module Scruffy::Helpers
     end
 
     def sortable(values)
-      values.find_all { |v| v.respond_to? :<=> }
+      values.find_all { |v| v.respond_to?(:<=>) && !v.nil? }
     end
     
     def summable(values)
-      values.find_all { |v| v.respond_to? :+ }
+      values.find_all { |v| v.respond_to?(:+) && !v.nil? }
     end
     
     def maximum_value

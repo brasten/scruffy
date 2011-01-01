@@ -64,17 +64,17 @@ module Scruffy::Layers
       @relevant_data      = options.delete(:relevant_data) || true
       @points             = options.delete(:points) || []
       @points.extend Scruffy::Helpers::PointContainer unless @points.kind_of? Scruffy::Helpers::PointContainer
-      
+
       options[:stroke_width] ||= 1
       options[:dots] ||= false
       options[:shadow] ||= false
       options[:style] ||= false
       options[:relativestroke] ||= false
-      
+
       @options            = options
-      
+
     end
-  
+
     # Builds SVG code for this graph using the provided Builder object.
     # This method actually generates data needed by this graph, then passes the
     # rendering responsibilities to Base#draw.
@@ -83,19 +83,19 @@ module Scruffy::Layers
     def render(svg, options)
       setup_variables(options)
       coords = generate_coordinates(options)
-    
+
       draw(svg, coords, options)
     end
-  
+
     # The method called by Base#draw to render the graph.
-    # 
+    #
     # svg:: a Builder object to use for creating SVG code.
     # coords:: An array of coordinates relating to the graph's data points.  ie: [[100, 120], [200, 140], [300, 40]]
     # options:: Optional arguments.
     def draw(svg, coords, options={})
       raise RenderError, "You must override the Base#draw method."
     end
-  
+
     # Returns a hash with information to be used by the legend.
     #
     # Alternatively, returns nil if you don't want this layer to be in the legend,
@@ -106,14 +106,14 @@ module Scruffy::Layers
     # must be rendered AFTER layers.
     def legend_data
       if relevant_data? && @color
-        {:title => title, 
+        {:title => title,
          :color => @color,
          :priority => :normal}
       else
         nil
       end
     end
-  
+
     # Returns the value of relevant_data
     def relevant_data?
       @relevant_data
@@ -123,17 +123,17 @@ module Scruffy::Layers
     def top_value
       @relevant_data ? points.maximum_value : nil
     end
-  
+
     # The lowest data point on this layer, or nil if relevant_data == false
     def bottom_value
        @relevant_data ? points.minimum_value : nil
     end
-    
+
     # The highest data point on this layer, or nil if relevant_data == false
     def bottom_key
       @relevant_data ? points.minimum_key : nil
     end
-  
+
     # The lowest data point on this layer, or nil if relevant_data == false
     def top_key
        @relevant_data ? points.maximum_key : nil
@@ -159,13 +159,12 @@ module Scruffy::Layers
       # Optimistic generation of coordinates for layer to use.  These coordinates are
       # just a best guess, and can be overridden or thrown away (for example, this is overridden
       # in pie charting and bar charts).
-      
+
       # Updated : Assuming n number of points, the graph is divided into n rectangles
-      # and the points are plotted in the middle of each rectangle.  This allows bars to 
+      # and the points are plotted in the middle of each rectangle.  This allows bars to
       # play nice with lines.
       def generate_coordinates(options = {})
-        
-        dy = height.to_f / (options[:max_value] - options[:min_value]) 
+        dy = height.to_f / (options[:max_value] - options[:min_value])
         dx = width.to_f / (options[:max_key] - options[:min_key] + 1)
 
         ret = []
