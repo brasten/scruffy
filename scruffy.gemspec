@@ -6,9 +6,9 @@ require 'scruffy/version'
 Gem::Specification.new do |s|
   s.name = "scruffy"
   s.version = Scruffy::VERSION
-
+  s.description = "Scruffy is a Ruby library for generating high quality, good looking graphs. It is designed to be easy to use and highly customizable."
   s.authors = ["brasten", "Jeremy Green", "samhendley", "delano", "willbryant", "tlconner", "Jonas Nicklas"]
-  s.email = ["brasten@nagilum.com", "david.parry@suranyami.com", "jonas.nicklas@gmail.com"]
+  s.email = ["brasten@nagilum.com", "david.parry@suranyami.com", "jagthedrummer@gmail.com", "tim@connorsoftware.com", "jonas.nicklas@gmail.com"]
   s.description = "Scruffy is a library for outputting graphs to image or SVG"
 
   s.files = Dir.glob("{lib,spec}/**/*") + %w(README.txt History.txt)
