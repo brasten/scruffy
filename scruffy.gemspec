@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email = ["brasten@nagilum.com", "david.parry@suranyami.com", "jagthedrummer@gmail.com", "tim@connorsoftware.com", "jonas.nicklas@gmail.com"]
   s.description = "Scruffy is a library for outputting graphs to image or SVG"
 
-  s.files = Dir.glob("{lib,spec}/**/*") + %w(README.txt History.txt)
+  s.files = Dir.glob("{lib,spec}/**/*") + %w(README.txt CHANGES.txt)
 
   s.homepage = "http://github.com/brasten/scruffy"
   s.rdoc_options = ["--main", "README.txt"]
